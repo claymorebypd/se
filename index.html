@@ -35,9 +35,9 @@
 
     <!-- Header and Navigation -->
     <header class="bg-white shadow-md p-4">
-        <nav class="container mx-auto flex justify-between items-center">
-            <a href="#" onclick="showPage('products-page')" class="text-2xl font-bold text-gray-900">Claymore by PD</a>
-            <div class="space-x-4 flex items-center">
+        <nav class="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+            <a href="#" onclick="showPage('products-page')" class="text-2xl font-bold text-gray-900 mb-4 sm:mb-0">Claymore by PD</a>
+            <div class="space-x-4 flex items-center flex-wrap justify-center">
                 <a href="#" onclick="showPage('products-page')" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-lang-key="navProducts">Products</a>
                 <a href="#" onclick="showPage('about-us-page')" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-lang-key="navAbout">About Us</a>
                 <a href="#" onclick="showPage('contact-us-page')" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-lang-key="navContact">Contact Us</a>
@@ -56,10 +56,10 @@
     </header>
 
     <!-- Main Content Area with Pages -->
-    <main class="flex-grow flex items-start justify-center p-8">
+    <main class="flex-grow flex items-start justify-center p-4 sm:p-8">
         
         <!-- Products Page Section -->
-        <section id="products-page" class="w-full max-w-5xl">
+        <section id="products-page" class="w-full">
             <div class="bg-white rounded-lg shadow-xl p-8 max-w-3xl mx-auto mb-8">
                 <div class="text-center">
                     <h1 class="text-3xl font-bold text-gray-800 mb-4" data-lang-key="welcomeTitle">Handmade with Love ❤️</h1>
@@ -137,12 +137,12 @@
                         <span class="text-2xl font-bold text-teal-800"><span id="cart-total">0</span> SEK</span>
                     </div>
                 </div>
-                <div class="flex justify-end items-center space-x-4 mt-6">
-                    <button id="clear-cart-button" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-lang-key="clearCartBtn">
+                <div class="flex flex-col sm:flex-row justify-end items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
+                    <button id="clear-cart-button" class="w-full sm:w-auto bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-lang-key="clearCartBtn">
                         Clear Cart
                     </button>
                     <!-- This button now navigates to the shipping page -->
-                    <button id="checkout-button" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-lang-key="checkoutBtn">
+                    <button id="checkout-button" class="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-lang-key="checkoutBtn">
                         Checkout
                     </button>
                 </div>
@@ -534,9 +534,9 @@
                 cart.forEach(item => {
                     const translatedName = getTranslatedProductName(item.id, currentLang);
                     const itemElement = document.createElement('div');
-                    itemElement.classList.add('flex', 'justify-between', 'items-center', 'p-4', 'rounded-lg', 'bg-gray-50');
+                    itemElement.classList.add('flex', 'flex-col', 'sm:flex-row', 'justify-between', 'items-center', 'p-4', 'rounded-lg', 'bg-gray-50');
                     itemElement.innerHTML = `
-                        <div class="flex flex-grow items-center space-x-4">
+                        <div class="flex flex-grow items-center space-x-4 mb-4 sm:mb-0">
                             <p class="font-semibold text-gray-800">${translatedName}</p>
                             <div class="quantity-control flex items-center space-x-2">
                                 <button class="decrease-qty-button" data-id="${item.id}">-</button>
