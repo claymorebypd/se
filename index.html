@@ -15,16 +15,6 @@
             background-color: #f0fdfa; /* A light teal background */
         }
 
-        /* Custom styles for the image upload drag-and-drop area */
-        #image-upload-area {
-            border: 2px dashed #cbd5e1;
-            transition: border-color 0.2s ease-in-out;
-        }
-
-        #image-upload-area.drag-over {
-            border-color: #0d9488; /* Teal for drag over */
-        }
-
         /* Style for the active navigation link */
         .nav-link.active {
             font-weight: bold;
@@ -42,7 +32,6 @@
             <div class="space-x-4">
                 <a href="#" onclick="showPage('home-page')" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200">Home</a>
                 <a href="#" onclick="showPage('about-us-page')" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200">About Us</a>
-                <a href="#" onclick="showPage('sale-page')" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200">Sale</a>
                 <a href="#" onclick="showPage('gallery-page')" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200">Gallery</a>
                 <a href="#" onclick="showPage('contact-us-page')" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200">Contact Us</a>
             </div>
@@ -53,38 +42,20 @@
     <main class="flex-grow flex items-start justify-center p-8">
         
         <!-- Home Page Section -->
-        <section id="home-page" class="w-full flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8 max-w-5xl">
-            <!-- Main Product Card -->
-            <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-auto md:mx-0">
+        <section id="home-page" class="w-full max-w-5xl">
+            <div class="bg-white rounded-lg shadow-xl p-8 max-w-3xl mx-auto">
                 <div class="text-center">
-                    <h1 class="text-3xl font-bold text-gray-800 mb-2">Awesome Product</h1>
-                    <p class="text-gray-500 mb-6">The best thing you'll ever own.</p>
+                    <h1 class="text-3xl font-bold text-gray-800 mb-4">Welcome to SwiftShop</h1>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Explore our latest collection of products. Each item in our gallery is available for immediate purchase through our secure checkout.
+                    </p>
                 </div>
-                <img src="https://placehold.co/400x300/e5e7eb/6b7280?text=Product+Image" alt="Product Image" class="w-full rounded-lg mb-6">
-                <div class="flex items-center justify-between mb-6">
-                    <span class="text-2xl font-bold text-gray-900">999 SEK</span>
-                    <span class="text-sm text-gray-400">incl. VAT</span>
+                <img src="https://placehold.co/800x450/e0f2f7/0e7490?text=Welcome+to+Our+Shop" alt="Welcome Image" class="w-full rounded-lg shadow-md mb-8">
+                <div class="text-center">
+                    <p class="text-gray-500 text-sm">
+                        To get started, simply navigate to the Gallery to see our latest items.
+                    </p>
                 </div>
-                <button id="buyButton" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">
-                    Buy Now
-                </button>
-            </div>
-
-            <!-- Image Upload Section -->
-            <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-auto md:mx-0 flex-grow">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Upload Your Pictures</h2>
-                <p class="text-gray-600 mb-6">Select or drag and drop images to upload them.</p>
-                <div id="image-upload-area" class="flex flex-col items-center justify-center p-8 rounded-lg mb-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p class="mt-2 text-gray-500 text-center">Drag and drop files here or click to browse</p>
-                    <input type="file" id="fileInput" class="hidden" multiple accept="image/*">
-                </div>
-                <div id="image-previews" class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6"></div>
-                <button id="uploadButton" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                    Upload Images
-                </button>
             </div>
         </section>
 
@@ -104,48 +75,46 @@
         <!-- Gallery Page Section -->
         <section id="gallery-page" class="w-full max-w-5xl hidden">
             <div class="bg-white rounded-lg shadow-xl p-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Gallery</h2>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Gallery of Products</h2>
                 <p class="text-gray-600 leading-relaxed mb-6">
-                    A collection of our favorite moments and products. In a real-world scenario, you would upload these images to a folder in your GitHub repository and link to them here.
+                    A collection of our favorite products. In a real-world scenario, you would upload these images to a folder in your GitHub repository and link to them here.
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <img src="https://placehold.co/300x200/a3e635/1a2e05?text=Image+1" alt="Gallery Image 1" class="w-full rounded-lg shadow-md transition-transform duration-200 hover:scale-105">
-                    <img src="https://placehold.co/300x200/34d399/042f2e?text=Image+2" alt="Gallery Image 2" class="w-full rounded-lg shadow-md transition-transform duration-200 hover:scale-105">
-                    <img src="https://placehold.co/300x200/22d3ee/042f2e?text=Image+3" alt="Gallery Image 3" class="w-full rounded-lg shadow-md transition-transform duration-200 hover:scale-105">
-                    <img src="https://placehold.co/300x200/60a5fa/042f2e?text=Image+4" alt="Gallery Image 4" class="w-full rounded-lg shadow-md transition-transform duration-200 hover:scale-105">
-                    <img src="https://placehold.co/300x200/93c5fd/042f2e?text=Image+5" alt="Gallery Image 5" class="w-full rounded-lg shadow-md transition-transform duration-200 hover:scale-105">
-                    <img src="https://placehold.co/300x200/c084fc/042f2e?text=Image+6" alt="Gallery Image 6" class="w-full rounded-lg shadow-md transition-transform duration-200 hover:scale-105">
-                    <img src="https://placehold.co/300x200/e879f9/042f2e?text=Image+7" alt="Gallery Image 7" class="w-full rounded-lg shadow-md transition-transform duration-200 hover:scale-105">
-                    <img src="https://placehold.co/300x200/f472b6/042f2e?text=Image+8" alt="Gallery Image 8" class="w-full rounded-lg shadow-md transition-transform duration-200 hover:scale-105">
-                </div>
-            </div>
-        </section>
-
-        <!-- Sale Page Section -->
-        <section id="sale-page" class="w-full max-w-5xl hidden">
-            <div class="bg-white rounded-lg shadow-xl p-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Hot Deals!</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    <!-- Example Sale Item 1 -->
-                    <div class="border rounded-lg p-4 text-center">
-                        <img src="https://placehold.co/300x200/fecaca/991b1b?text=Sale+Item+1" alt="Sale Item 1" class="w-full rounded-lg mb-4">
+                    <!-- Product Card 1 -->
+                    <div class="flex flex-col rounded-lg shadow-md transition-transform duration-200 hover:scale-105 border border-gray-100 p-4">
+                        <img src="https://placehold.co/300x200/22d3ee/042f2e?text=Product+1" alt="Product Image 1" class="w-full rounded-lg mb-4">
                         <p class="font-semibold text-lg text-gray-800">Fancy Gadget</p>
-                        <p class="text-gray-500 line-through">499 SEK</p>
-                        <p class="text-red-500 font-bold text-xl">299 SEK</p>
+                        <p class="text-teal-600 font-bold text-xl mb-4">999 SEK</p>
+                        <button class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 buy-button">
+                            Buy Now
+                        </button>
                     </div>
-                    <!-- Example Sale Item 2 -->
-                    <div class="border rounded-lg p-4 text-center">
-                        <img src="https://placehold.co/300x200/fecaca/991b1b?text=Sale+Item+2" alt="Sale Item 2" class="w-full rounded-lg mb-4">
+                    <!-- Product Card 2 -->
+                    <div class="flex flex-col rounded-lg shadow-md transition-transform duration-200 hover:scale-105 border border-gray-100 p-4">
+                        <img src="https://placehold.co/300x200/60a5fa/042f2e?text=Product+2" alt="Product Image 2" class="w-full rounded-lg mb-4">
                         <p class="font-semibold text-lg text-gray-800">Essential Tool</p>
-                        <p class="text-gray-500 line-through">249 SEK</p>
-                        <p class="text-red-500 font-bold text-xl">149 SEK</p>
+                        <p class="text-teal-600 font-bold text-xl mb-4">249 SEK</p>
+                        <button class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 buy-button">
+                            Buy Now
+                        </button>
                     </div>
-                    <!-- Example Sale Item 3 -->
-                    <div class="border rounded-lg p-4 text-center">
-                        <img src="https://placehold.co/300x200/fecaca/991b1b?text=Sale+Item+3" alt="Sale Item 3" class="w-full rounded-lg mb-4">
+                    <!-- Product Card 3 -->
+                    <div class="flex flex-col rounded-lg shadow-md transition-transform duration-200 hover:scale-105 border border-gray-100 p-4">
+                        <img src="https://placehold.co/300x200/93c5fd/042f2e?text=Product+3" alt="Product Image 3" class="w-full rounded-lg mb-4">
                         <p class="font-semibold text-lg text-gray-800">Premium Accessory</p>
-                        <p class="text-gray-500 line-through">799 SEK</p>
-                        <p class="text-red-500 font-bold text-xl">599 SEK</p>
+                        <p class="text-teal-600 font-bold text-xl mb-4">799 SEK</p>
+                        <button class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 buy-button">
+                            Buy Now
+                        </button>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div class="flex flex-col rounded-lg shadow-md transition-transform duration-200 hover:scale-105 border border-gray-100 p-4">
+                        <img src="https://placehold.co/300x200/c084fc/042f2e?text=Product+4" alt="Product Image 4" class="w-full rounded-lg mb-4">
+                        <p class="font-semibold text-lg text-gray-800">Smart Gadget</p>
+                        <p class="text-teal-600 font-bold text-xl mb-4">499 SEK</p>
+                        <button class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 buy-button">
+                            Buy Now
+                        </button>
                     </div>
                 </div>
             </div>
@@ -211,147 +180,47 @@
             }
         }
 
-        // Get elements for the buy button functionality (existing code)
-        const buyButton = document.getElementById('buyButton');
+        // Get elements for the buy button functionality
         const paymentModal = document.getElementById('paymentModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalMessage = document.getElementById('modalMessage');
         const closeModalButton = document.getElementById('closeModalButton');
 
-        // Get elements for the new image upload functionality
-        const uploadArea = document.getElementById('image-upload-area');
-        const fileInput = document.getElementById('fileInput');
-        const imagePreviews = document.getElementById('image-previews');
-        const uploadButton = document.getElementById('uploadButton');
+        // Function to handle the "Buy Now" button click for any product
+        function handleBuyNowClick(event) {
+            const buyButton = event.target;
+            buyButton.disabled = true;
+            buyButton.textContent = 'Processing...';
+            buyButton.classList.remove('bg-teal-600', 'hover:bg-teal-700');
+            buyButton.classList.add('bg-teal-400');
 
-        let uploadedFiles = [];
-
-        // Function to handle file selection and display previews
-        function handleFiles(files) {
-            uploadedFiles = Array.from(files);
-            imagePreviews.innerHTML = ''; // Clear previous previews
-
-            if (uploadedFiles.length > 0) {
-                uploadButton.disabled = false;
-                uploadButton.classList.remove('bg-gray-400');
-                uploadButton.classList.add('bg-blue-600', 'hover:bg-blue-700');
-            } else {
-                uploadButton.disabled = true;
-                uploadButton.classList.add('bg-gray-400');
-                uploadButton.classList.remove('bg-blue-600', 'hover:bg-blue-700');
-            }
-
-            uploadedFiles.forEach(file => {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const imgContainer = document.createElement('div');
-                    imgContainer.className = 'w-full h-24 rounded-lg overflow-hidden relative';
-                    imgContainer.innerHTML = `<img src="${e.target.result}" class="w-full h-full object-cover">`;
-                    imagePreviews.appendChild(imgContainer);
+            setTimeout(() => {
+                const simulatedApiResponse = {
+                    paymentUrl: 'https://mock-swedbankpay.com/payment-page'
                 };
-                reader.readAsDataURL(file);
-            });
+                const paymentUrl = simulatedApiResponse.paymentUrl;
+
+                buyButton.disabled = false;
+                buyButton.textContent = 'Buy Now';
+                buyButton.classList.remove('bg-teal-400');
+                buyButton.classList.add('bg-teal-600', 'hover:bg-teal-700');
+
+                modalTitle.textContent = 'Payment Redirection';
+                modalMessage.innerHTML = `<p class="mb-4">You are now being redirected to Swedbank Pay's secure payment page to complete your purchase.</p><p>In this demo, you would now be redirected to:</p><a href="${paymentUrl}" class="text-teal-500 underline" target="_blank">${paymentUrl}</a>`;
+                paymentModal.classList.remove('hidden');
+            }, 2000);
         }
 
-        // Click event to trigger file input
-        if (uploadArea) {
-            uploadArea.addEventListener('click', () => fileInput.click());
-        }
-        
-        // Change event for the file input
-        if (fileInput) {
-            fileInput.addEventListener('change', (e) => {
-                handleFiles(e.target.files);
-            });
-        }
-        
-        // Drag-and-drop events
-        if (uploadArea) {
-            uploadArea.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                uploadArea.classList.add('drag-over');
-            });
-
-            uploadArea.addEventListener('dragleave', (e) => {
-                e.preventDefault();
-                uploadArea.classList.remove('drag-over');
-            });
-
-            uploadArea.addEventListener('drop', (e) => {
-                e.preventDefault();
-                uploadArea.classList.remove('drag-over');
-                handleFiles(e.dataTransfer.files);
-            });
-        }
-
-        // Event listener for the new Upload Button
-        if (uploadButton) {
-            uploadButton.addEventListener('click', () => {
-                if (uploadedFiles.length === 0) {
-                    modalTitle.textContent = 'Upload Failed';
-                    modalMessage.textContent = 'Please select at least one image to upload.';
-                    paymentModal.classList.remove('hidden');
-                    return;
-                }
-
-                uploadButton.disabled = true;
-                uploadButton.textContent = 'Uploading...';
-                uploadButton.classList.remove('bg-blue-600', 'hover:bg-blue-700');
-                uploadButton.classList.add('bg-gray-400');
-
-                setTimeout(() => {
-                    modalTitle.textContent = 'Upload Simulated!';
-                    modalMessage.textContent = `A real-world application would now be uploading ${uploadedFiles.length} images to a server.`;
-                    paymentModal.classList.remove('hidden');
-                    
-                    uploadedFiles = [];
-                    imagePreviews.innerHTML = '';
-                    uploadButton.textContent = 'Upload Images';
-                    uploadButton.disabled = true;
-                    uploadButton.classList.add('bg-gray-400');
-                    uploadButton.classList.remove('bg-blue-600', 'hover:bg-blue-700');
-                }, 2000);
-            });
-        }
-
-        // Event listener for the existing buy button
-        if (buyButton) {
-            buyButton.addEventListener('click', () => {
-                buyButton.disabled = true;
-                buyButton.textContent = 'Processing...';
-                buyButton.classList.remove('bg-teal-600', 'hover:bg-teal-700');
-                buyButton.classList.add('bg-teal-400');
-
-                setTimeout(() => {
-                    const simulatedApiResponse = {
-                        paymentUrl: 'https://mock-swedbankpay.com/payment-page'
-                    };
-                    const paymentUrl = simulatedApiResponse.paymentUrl;
-
-                    buyButton.disabled = false;
-                    buyButton.textContent = 'Buy Now';
-                    buyButton.classList.remove('bg-teal-400');
-                    buyButton.classList.add('bg-teal-600', 'hover:bg-teal-700');
-
-                    modalTitle.textContent = 'Payment Redirection';
-                    modalMessage.innerHTML = `<p class="mb-4">You are now being redirected to Swedbank Pay's secure payment page to complete your purchase.</p><p>In this demo, you would now be redirected to:</p><a href="${paymentUrl}" class="text-teal-500 underline" target="_blank">${paymentUrl}</a>`;
-                    paymentModal.classList.remove('hidden');
-
-                }, 2000);
-            });
-        }
+        // Event listener for all "Buy Now" buttons
+        document.querySelectorAll('.buy-button').forEach(button => {
+            button.addEventListener('click', handleBuyNowClick);
+        });
 
         // Close modal button for both functionalities
         if (closeModalButton) {
             closeModalButton.addEventListener('click', () => {
                 paymentModal.classList.add('hidden');
             });
-        }
-
-        // Initial state for the upload button and first page
-        if (uploadButton) {
-            uploadButton.disabled = true;
-            uploadButton.classList.add('bg-gray-400');
         }
 
         // Show the initial page on load
