@@ -76,44 +76,8 @@
                 <p class="text-gray-600 leading-relaxed mb-6" data-lang-key="productsText">
                     A collection of our favorite products. In a real-world scenario, you would upload these images to a folder in your GitHub repository and link to them here.
                 </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <!-- Product Card 1 -->
-                    <div class="flex flex-col rounded-lg shadow-md transition-transform duration-200 hover:scale-105 border border-gray-100 p-4">
-                        <img src="https://placehold.co/300x200/22d3ee/042f2e?text=Product+1" alt="Product Image 1" class="w-full rounded-lg mb-4">
-                        <p class="font-semibold text-lg text-gray-800" data-lang-key="product1Name">Fancy Gadget</p>
-                        <p class="text-teal-600 font-bold text-xl mb-4">999 SEK</p>
-                        <button class="add-to-cart-button w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-name="Fancy Gadget" data-price="999" data-lang-key="addToCartBtn">
-                            Add to Cart
-                        </button>
-                    </div>
-                    <!-- Product Card 2 -->
-                    <div class="flex flex-col rounded-lg shadow-md transition-transform duration-200 hover:scale-105 border border-gray-100 p-4">
-                        <img src="https://placehold.co/300x200/60a5fa/042f2e?text=Product+2" alt="Product Image 2" class="w-full rounded-lg mb-4">
-                        <p class="font-semibold text-lg text-gray-800" data-lang-key="product2Name">Essential Tool</p>
-                        <p class="text-teal-600 font-bold text-xl mb-4">249 SEK</p>
-                        <button class="add-to-cart-button w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-name="Essential Tool" data-price="249" data-lang-key="addToCartBtn">
-                            Add to Cart
-                        </button>
-                    </div>
-                    <!-- Product Card 3 -->
-                    <div class="flex flex-col rounded-lg shadow-md transition-transform duration-200 hover:scale-105 border border-gray-100 p-4">
-                        <img src="https://placehold.co/300x200/93c5fd/042f2e?text=Product+3" alt="Product Image 3" class="w-full rounded-lg mb-4">
-                        <p class="font-semibold text-lg text-gray-800" data-lang-key="product3Name">Premium Accessory</p>
-                        <p class="text-teal-600 font-bold text-xl mb-4">799 SEK</p>
-                        <button class="add-to-cart-button w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-name="Premium Accessory" data-price="799" data-lang-key="addToCartBtn">
-                            Add to Cart
-                        </button>
-                    </div>
-                    <!-- Product Card 4 -->
-                    <div class="flex flex-col rounded-lg shadow-md transition-transform duration-200 hover:scale-105 border border-gray-100 p-4">
-                        <img src="https://placehold.co/300x200/c084fc/042f2e?text=Product+4" alt="Product Image 4" class="w-full rounded-lg mb-4">
-                        <p class="font-semibold text-lg text-gray-800" data-lang-key="product4Name">Smart Gadget</p>
-                        <p class="text-teal-600 font-bold text-xl mb-4">499 SEK</p>
-                        <button class="add-to-cart-button w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-name="Smart Gadget" data-price="499" data-lang-key="addToCartBtn">
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
+                <!-- Product groups will be dynamically generated here -->
+                <div id="product-groups"></div>
             </div>
         </section>
 
@@ -257,10 +221,10 @@
 
     <!-- Payment Status Modal -->
     <div id="paymentModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden">
-        <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-4 text-center">
+        <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-4 text-center overflow-y-auto max-h-[80vh]">
             <h2 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-4"></h2>
             <p id="modalMessage" class="text-gray-600 mb-6"></p>
-            <button id="closeModalButton" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-lang-key="closeBtn">
+            <button id="closeModalButton" class="flex-shrink-0 bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-lang-key="closeBtn">
                 Close
             </button>
         </div>
@@ -284,10 +248,6 @@
                 autumnCollection: 'Autumn Collection - Höstkollektion',
                 productsTitle: 'Our Product Collection',
                 productsText: 'A collection of our favorite products. In a real-world scenario, you would upload these images to a folder in your GitHub repository and link to them here.',
-                product1Name: 'Fancy Gadget',
-                product2Name: 'Essential Tool',
-                product3Name: 'Premium Accessory',
-                product4Name: 'Smart Gadget',
                 addToCartBtn: 'Add to Cart',
                 aboutTitle: 'About Our Company',
                 aboutParagraph1: 'Founded in 2023, Claymore by PD is a leading provider of innovative solutions for modern consumers. Our mission is to deliver high-quality products and seamless experiences that empower our customers to live smarter, more connected lives. We believe in transparency, integrity, and putting our users first.',
@@ -330,6 +290,12 @@
                 processingBtn: 'Processing...',
                 buyNowBtn: 'Pay Now',
                 removeItemBtn: 'Remove',
+                // Category translations
+                'nature-inspired-category': '🌿 Nature-Inspired',
+                'autumn-abstracts-category': '🍁 Autumn Abstracts',
+                'bold-artistic-category': '❤️ Bold & Artistic',
+                'shimmer-flow-category': '🍂 Shimmer & Flöde',
+                closeBtn: 'Close'
             },
             sv: {
                 navProducts: 'Produkter',
@@ -342,10 +308,6 @@
                 autumnCollection: 'Höstkollektion - Autumn Collection',
                 productsTitle: 'Vår produktkollektion',
                 productsText: 'En samling av våra favoritprodukter. I ett verkligt scenario skulle du ladda upp dessa bilder till en mapp i ditt GitHub-arkiv och länka till dem här.',
-                product1Name: 'Snygg pryl',
-                product2Name: 'Väsentligt verktyg',
-                product3Name: 'Premium-tillbehör',
-                product4Name: 'Smart pryl',
                 addToCartBtn: 'Lägg i varukorg',
                 aboutTitle: 'Om Vårt Företag',
                 aboutParagraph1: 'Claymore by PD, grundat 2023, är en ledande leverantör av innovativa lösningar för moderna konsumenter. Vår mission är att leverera högkvalitativa produkter och sömlösa upplevelser som ger våra kunder möjlighet att leva smartare och mer uppkopplade liv. Vi tror på transparens, integritet och att sätta våra användare först.',
@@ -388,17 +350,98 @@
                 processingBtn: 'Bearbetar...',
                 buyNowBtn: 'Betala nu',
                 removeItemBtn: 'Ta bort',
+                // Category translations
+                'nature-inspired-category': '🌿 Natur-inspirerad',
+                'autumn-abstracts-category': '🍁 Höstabstrakter',
+                'bold-artistic-category': '❤️ Djärv & Konstnärlig',
+                'shimmer-flow-category': '🍂 Skimmer & Flöde',
+                closeBtn: 'Stäng'
             }
         };
+        
+        // Product data with categories
+        const products = [];
+        const categories = [
+            { id: 'nature-inspired', nameKey: 'nature-inspired-category', color: 'c9e4c1' }, // Soft pastels
+            { id: 'autumn-abstracts', nameKey: 'autumn-abstracts-category', color: 'd28a52' }, // Bold colors
+            { id: 'bold-artistic', nameKey: 'bold-artistic-category', color: '4a4a4a' }, // High contrast
+            { id: 'shimmer-flow', nameKey: 'shimmer-flow-category', color: 'd4cfd8' } // Marbled, soft blends
+        ];
 
+        // Generate 12 products per category, for a total of 48 products
+        for (let i = 1; i <= 48; i++) {
+            const categoryIndex = (i - 1) % categories.length;
+            const category = categories[categoryIndex];
+            products.push({
+                id: i,
+                name: `Product ${i}`,
+                category: category.id,
+                price: Math.floor(Math.random() * 500) + 100, // Random price between 100 and 600
+                imageColor: category.color,
+            });
+            // Add translations for new products (simple example)
+            translations.en[`product${i}Name`] = `Product ${i}`;
+            translations.sv[`product${i}Name`] = `Produkt ${i}`;
+        }
+        
         let currentLang = 'en';
 
         // Helper function to get product name translation
-        function getTranslatedProductName(productName, lang) {
-            const productKeys = Object.keys(translations.en).filter(key => key.startsWith('product'));
-            const productKey = productKeys.find(key => translations.en[key] === productName);
-            return productKey ? translations[lang][productKey] : productName;
+        function getTranslatedProductName(productId, lang) {
+            const product = products.find(p => p.id === productId);
+            const productKey = `product${productId}Name`;
+            return translations[lang][productKey] || product.name;
         }
+
+        // Function to generate and render product cards
+        function renderProducts() {
+            const productGroupsElement = document.getElementById('product-groups');
+            productGroupsElement.innerHTML = ''; // Clear existing content
+
+            // Group products by category
+            const groupedProducts = products.reduce((acc, product) => {
+                (acc[product.category] = acc[product.category] || []).push(product);
+                return acc;
+            }, {});
+
+            categories.forEach(category => {
+                const categoryProducts = groupedProducts[category.id] || [];
+                if (categoryProducts.length > 0) {
+                    const categorySection = document.createElement('div');
+                    categorySection.classList.add('mb-12');
+                    
+                    const categoryTitle = document.createElement('h3');
+                    categoryTitle.classList.add('text-xl', 'font-bold', 'text-gray-800', 'mb-4');
+                    categoryTitle.textContent = translations[currentLang][category.nameKey];
+                    categorySection.appendChild(categoryTitle);
+
+                    const productGrid = document.createElement('div');
+                    productGrid.classList.add('grid', 'grid-cols-1', 'sm:grid-cols-2', 'md:grid-cols-3', 'lg:grid-cols-4', 'xl:grid-cols-5', 'gap-6');
+
+                    categoryProducts.forEach(product => {
+                        const translatedName = getTranslatedProductName(product.id, currentLang);
+                        const imageText = encodeURIComponent(translatedName.replace(/\s/g, '+'));
+                        const productImageSrc = `https://placehold.co/300x200/${product.imageColor}/fff?text=${imageText}`;
+
+                        const productCardHtml = `
+                            <div class="flex flex-col rounded-lg shadow-md transition-transform duration-200 hover:scale-105 border border-gray-100 p-4">
+                                <img src="${productImageSrc}" alt="${translatedName}" class="w-full rounded-lg mb-4">
+                                <p class="font-semibold text-lg text-gray-800">${translatedName}</p>
+                                <p class="text-teal-600 font-bold text-xl mb-4">${product.price} SEK</p>
+                                <button class="add-to-cart-button w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-id="${product.id}" data-lang-key="addToCartBtn">
+                                    ${translations[currentLang].addToCartBtn}
+                                </button>
+                            </div>
+                        `;
+                        productGrid.innerHTML += productCardHtml;
+                    });
+                    
+                    categorySection.appendChild(productGrid);
+                    productGroupsElement.appendChild(categorySection);
+                }
+            });
+        }
+
 
         // Global function to handle page switching
         function showPage(pageId) {
@@ -423,7 +466,9 @@
             }
             
             // Special rendering for specific pages
-            if (pageId === 'cart-page') {
+            if (pageId === 'products-page') {
+                renderProducts();
+            } else if (pageId === 'cart-page') {
                 renderCart();
             } else if (pageId === 'review-page') {
                 renderReview();
@@ -450,6 +495,9 @@
             });
 
             // Re-render cart and review page to update product names if visible
+            if (document.getElementById('products-page').classList.contains('hidden') === false) {
+                renderProducts();
+            }
             if (document.getElementById('cart-page').classList.contains('hidden') === false) {
                 renderCart();
             }
@@ -484,21 +532,21 @@
             } else {
                 emptyCartMessage.classList.add('hidden');
                 cart.forEach(item => {
+                    const translatedName = getTranslatedProductName(item.id, currentLang);
                     const itemElement = document.createElement('div');
                     itemElement.classList.add('flex', 'justify-between', 'items-center', 'p-4', 'rounded-lg', 'bg-gray-50');
-                    const translatedName = getTranslatedProductName(item.name, currentLang);
                     itemElement.innerHTML = `
                         <div class="flex flex-grow items-center space-x-4">
                             <p class="font-semibold text-gray-800">${translatedName}</p>
                             <div class="quantity-control flex items-center space-x-2">
-                                <button class="decrease-qty-button" data-name="${item.name}">-</button>
+                                <button class="decrease-qty-button" data-id="${item.id}">-</button>
                                 <span class="text-sm font-semibold text-gray-700">${item.quantity}</span>
-                                <button class="increase-qty-button" data-name="${item.name}">+</button>
+                                <button class="increase-qty-button" data-id="${item.id}">+</button>
                             </div>
                         </div>
                         <div class="flex items-center space-x-4">
                             <p class="font-bold text-teal-600">${item.price * item.quantity} SEK</p>
-                            <button class="remove-from-cart-button text-red-500 hover:text-red-700 font-semibold text-sm transition-colors duration-200" data-name="${item.name}" data-lang-key="removeItemBtn">
+                            <button class="remove-from-cart-button text-red-500 hover:text-red-700 font-semibold text-sm transition-colors duration-200" data-id="${item.id}" data-lang-key="removeItemBtn">
                                 ${translations[currentLang].removeItemBtn}
                             </button>
                         </div>
@@ -515,7 +563,7 @@
             cart.forEach(item => {
                 const itemElement = document.createElement('div');
                 itemElement.classList.add('flex', 'justify-between', 'items-center', 'p-2', 'rounded-lg', 'bg-gray-50');
-                const translatedName = getTranslatedProductName(item.name, currentLang);
+                const translatedName = getTranslatedProductName(item.id, currentLang);
                 itemElement.innerHTML = `
                     <p class="font-semibold text-gray-800">${translatedName} (${item.quantity}x)</p>
                     <p class="font-bold text-teal-600">${item.price * item.quantity} SEK</p>
@@ -550,24 +598,29 @@
         // Function to handle adding a product to the cart
         function handleAddToCartClick(event) {
             const button = event.target;
-            const productName = button.dataset.name;
-            const productPrice = parseFloat(button.dataset.price);
+            const productId = parseInt(button.dataset.id);
 
-            const existingItem = cart.find(item => item.name === productName);
+            const product = products.find(p => p.id === productId);
+
+            if (!product) {
+                return;
+            }
+
+            const existingItem = cart.find(item => item.id === productId);
             if (existingItem) {
                 existingItem.quantity++;
             } else {
-                cart.push({ name: productName, price: productPrice, quantity: 1 });
+                cart.push({ id: product.id, name: product.name, price: product.price, quantity: 1 });
             }
             updateCart();
-            showModal(translations[currentLang].modalProductAddedTitle, translations[currentLang].modalProductAddedMessage(getTranslatedProductName(productName, currentLang)));
+            showModal(translations[currentLang].modalProductAddedTitle, translations[currentLang].modalProductAddedMessage(getTranslatedProductName(product.id, currentLang)));
         }
 
         // Function to remove a single product from the cart
         function handleRemoveItem(event) {
             const button = event.target;
-            const productName = button.dataset.name;
-            const itemIndex = cart.findIndex(item => item.name === productName);
+            const productId = parseInt(button.dataset.id);
+            const itemIndex = cart.findIndex(item => item.id === productId);
 
             if (itemIndex > -1) {
                 cart.splice(itemIndex, 1);
@@ -577,8 +630,8 @@
         }
         
         // Function to increase the quantity of a product
-        function handleIncreaseQuantity(productName) {
-            const item = cart.find(i => i.name === productName);
+        function handleIncreaseQuantity(productId) {
+            const item = cart.find(i => i.id === productId);
             if (item) {
                 item.quantity++;
                 updateCart();
@@ -587,12 +640,12 @@
         }
 
         // Function to decrease the quantity of a product
-        function handleDecreaseQuantity(productName) {
-            const item = cart.find(i => i.name === productName);
+        function handleDecreaseQuantity(productId) {
+            const item = cart.find(i => i.id === productId);
             if (item) {
                 item.quantity--;
                 if (item.quantity <= 0) {
-                    const itemIndex = cart.findIndex(i => i.name === productName);
+                    const itemIndex = cart.findIndex(i => i.id === productId);
                     cart.splice(itemIndex, 1);
                 }
                 updateCart();
@@ -686,21 +739,23 @@
         }
 
         // Event listeners
-        document.querySelectorAll('.add-to-cart-button').forEach(button => {
-            button.addEventListener('click', handleAddToCartClick);
+        document.getElementById('products-page').addEventListener('click', (event) => {
+            if (event.target.classList.contains('add-to-cart-button')) {
+                handleAddToCartClick(event);
+            }
         });
         
         // Event delegation for dynamically added buttons in the cart
         document.getElementById('cart-items').addEventListener('click', (event) => {
             const target = event.target;
-            const productName = target.dataset.name;
+            const productId = parseInt(target.dataset.id);
 
             if (target.classList.contains('remove-from-cart-button')) {
                 handleRemoveItem(event);
             } else if (target.classList.contains('increase-qty-button')) {
-                handleIncreaseQuantity(productName);
+                handleIncreaseQuantity(productId);
             } else if (target.classList.contains('decrease-qty-button')) {
-                handleDecreaseQuantity(productName);
+                handleDecreaseQuantity(productId);
             }
         });
 
