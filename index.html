@@ -267,8 +267,173 @@
         // In-memory data storage
         let cart = [];
         let shippingInfo = {};
-
+        
+        // This is where you can customize each product's details and price.
+        const products = [
+            {
+                id: 1,
+                name: 'Teal Drops',
+                category: 'nature-inspired',
+                price: 250,
+                imageSrc: 'product1.png'
+            },
+            {
+                id: 2,
+                name: 'Autumn Leaves',
+                category: 'autumn-abstracts',
+                price: 310,
+                imageSrc: 'product2.png'
+            },
+            {
+                id: 3,
+                name: 'Midnight Bloom',
+                category: 'bold-artistic',
+                price: 290,
+                imageSrc: 'product3.png'
+            },
+            {
+                id: 4,
+                name: 'Golden Flow',
+                category: 'shimmer-flow',
+                price: 275,
+                imageSrc: 'product4.png'
+            },
+            {
+                id: 5,
+                name: 'Ocean Waves',
+                category: 'nature-inspired',
+                price: 260,
+                imageSrc: 'product5.png'
+            },
+            {
+                id: 6,
+                name: 'Fall Sunset',
+                category: 'autumn-abstracts',
+                price: 320,
+                imageSrc: 'product6.png'
+            },
+            {
+                id: 7,
+                name: 'Pink Crush',
+                category: 'bold-artistic',
+                price: 285,
+                imageSrc: 'product7.png'
+            },
+            {
+                id: 8,
+                name: 'Mystic Swirl',
+                category: 'shimmer-flow',
+                price: 300,
+                imageSrc: 'product8.png'
+            },
+            {
+                id: 9,
+                name: 'Forest Ferns',
+                category: 'nature-inspired',
+                price: 270,
+                imageSrc: 'product9.jpg'
+            },
+            {
+                id: 10,
+                name: 'Cranberry Twist',
+                category: 'autumn-abstracts',
+                price: 330,
+                imageSrc: 'product10.jpg'
+            },
+            {
+                id: 11,
+                name: 'Red Hot',
+                category: 'bold-artistic',
+                price: 295,
+                imageSrc: 'product11.jpg'
+            },
+            {
+                id: 12,
+                name: 'Silver Mist',
+                category: 'shimmer-flow',
+                price: 280,
+                imageSrc: 'product12.jpg'
+            },
+            {
+                id: 13,
+                name: 'Crimson Twist',
+                category: 'bold-artistic',
+                price: 310,
+                imageSrc: 'product13.png'
+            },
+            {
+                id: 14,
+                name: 'Azure Swirl',
+                category: 'bold-artistic',
+                price: 290,
+                imageSrc: 'product14.png'
+            },
+            {
+                id: 15,
+                name: 'Silver Lining',
+                category: 'shimmer-flow',
+                price: 285,
+                imageSrc: 'product15.png'
+            },
+            {
+                id: 16,
+                name: 'Green Marble',
+                category: 'nature-inspired',
+                price: 265,
+                imageSrc: 'product16.png'
+            },
+            {
+                id: 17,
+                name: 'Fiery Heart',
+                category: 'bold-artistic',
+                price: 320,
+                imageSrc: 'product17.png'
+            },
+            {
+                id: 18,
+                name: 'Forest Floor',
+                category: 'autumn-abstracts',
+                price: 275,
+                imageSrc: 'product18.png'
+            },
+            {
+                id: 19,
+                name: 'Ocean Ripple',
+                category: 'bold-artistic',
+                price: 300,
+                imageSrc: 'product19.png'
+            },
+            {
+                id: 20,
+                name: 'Pearl Drops',
+                category: 'shimmer-flow',
+                price: 350,
+                imageSrc: 'product20.png'
+            },
+            {
+                id: 21,
+                name: 'Sunrise Burst',
+                category: 'bold-artistic',
+                price: 295,
+                imageSrc: 'product21.png'
+            },
+            {
+                id: 23,
+                name: 'Earthy Hues',
+                category: 'autumn-abstracts',
+                price: 280,
+                imageSrc: 'product23.png'
+            }
+        ];
+        
         // Object for translations
+        const categories = [
+            { id: 'nature-inspired', nameKey: 'nature-inspired-category' },
+            { id: 'autumn-abstracts', nameKey: 'autumn-abstracts-category' },
+            { id: 'bold-artistic', nameKey: 'bold-artistic-category' },
+            { id: 'shimmer-flow', nameKey: 'shimmer-flow-category' }
+        ];
+
         const translations = {
             en: {
                 navProducts: 'Products',
@@ -319,7 +484,7 @@
                 modalProductAddedMessage: (productName) => `"${productName}" has been added to your cart.`,
                 modalCannotCheckoutTitle: 'Cannot Checkout',
                 modalCannotCheckoutMessage: 'Your cart is empty. Please add items to checkout.',
-                modalPaymentSuccessTitle: 'Payment Successful!',
+                modalPaymentSuccessTitle: 'Payment Successful',
                 modalPaymentSuccessMessage: (confirmationCode, email) => `<p class="mb-4">Thank you for your order! Your payment was successful.</p><p class="mb-4">Your confirmation code is: <span class="font-bold text-teal-600">${confirmationCode}</span></p><p>A confirmation email has been sent to ${email}.</p>`,
                 modalPaymentFailedTitle: 'Payment Failed',
                 modalPaymentFailedMessage: (email) => `<p class="mb-4">Unfortunately, your payment could not be processed.</p><p>An email with further instructions has been sent to ${email}. Please try again or contact support.</p>`,
@@ -328,12 +493,12 @@
                 processingBtn: 'Processing...',
                 buyNowBtn: 'Pay Now',
                 removeItemBtn: 'Remove',
+                closeBtn: 'Close',
                 // Category translations
                 'nature-inspired-category': '🌿 Nature-Inspired',
                 'autumn-abstracts-category': '🍁 Autumn Abstracts',
                 'bold-artistic-category': '❤️ Bold & Artistic',
                 'shimmer-flow-category': '🍂 Shimmer & Flöde',
-                closeBtn: 'Close'
             },
             sv: {
                 navProducts: 'Produkter',
@@ -345,13 +510,13 @@
                 autumnMotto: 'Omfamna säsongen med våra nya höstdesigner.',
                 autumnCollection: 'Höstkollektion - Autumn Collection',
                 productsTitle: 'Vår produktkollektion',
-                productsText: 'En samling av våra favoritprodukter. I ett verkligt scenario skulle du ladda upp dessa bilder till en mapp i ditt GitHub-arkiv och länka till dem här.',
+                productsText: 'På ClayCharm anser vi att smycken ska vara lika roliga, unika och fulla av personlighet som den som bär dem. Varje smycke är handgjort med kärlek, designat för att lägga till den perfekta touchen av charm och kreativitet till varje look.',
                 addToCartBtn: 'Lägg i varukorg',
                 aboutTitle: 'Om Vårt Företag',
-                aboutParagraph1: 'På ClayCharm tror vi att smycken inte bara handlar om att accessoarisera—det handlar om att uttrycka din unika personlighet, kreativitet och stil. Var och en av våra smycken är handgjorda med kärlek, med hjälp av färgglad polymerlera för att skapa unika designer som ger charm, glädje och en touch av magi till varje outfit.',
-                aboutParagraph2: 'Från levande, färgstarka smycken till eleganta, subtila designer, erbjuder ClayCharm något för varje kvinna som älskar att uttrycka sig genom mode. Varje smycke är noggrant utformat för att få dig att känna dig speciell och lägga till den perfekta charmen till din look—oavsett tillfälle.',
+                aboutParagraph1: 'På ClayCharm tror vi att smycken inte bara handlar om att accessorizera—det handlar om att uttrycka din unika personlighet, kreativitet och stil. Var och en av våra smycken är handgjorda med kärlek, med hjälp av färgglad polymerlera för att skapa unika designer som ger charm, glädje och en touch av magi till varje outfit.',
+                aboutParagraph2: 'Från levande, färgstarka smycken till eleganta, subtila designer, erbjuder ClayCharm något för varje kvinna som älskar att uttrycka sig genom mode. Varje smycke är noggrant utformat för att få dig att känna dig speciell och lägga till den perfekta charmen till din look—no matter the occasion.',
                 meetTheMakerTitle: 'Möt Skaparen',
-                meetTheMakerText: 'Hej, jag är Priyadharshini [PD], skaparen bakom ClayCharm! Jag har alltid haft en passion för hantverk och design. Mitt mål är att dela med mig av smycken som hyllar individualitet, kreativitet och skönhet—smycken som ger charm till varje kvinnas dag, oavsett hennes ålder eller stil.',
+                meetTheMakerText: 'Hej, jag är Priyadharshini [PD], skaparen bakom ClayCharm! Jag har alltid haft en passion för hantverk och design. Mitt mål är att dela med mig av smycken som hyllar individualitet, kreativitet och skönhet—smycken som ger charm till varje kvinnas dag, no matter her age or style.',
                 contactTitle: 'Kontakta Oss',
                 contactIntroText: 'Har du en fråga eller en speciell önskan? Vi vill gärna höra från dig!',
                 contactEmail: 'Mejla Oss',
@@ -393,45 +558,21 @@
                 processingBtn: 'Bearbetar...',
                 buyNowBtn: 'Betala nu',
                 removeItemBtn: 'Ta bort',
+                closeBtn: 'Stäng',
                 // Category translations
                 'nature-inspired-category': '🌿 Natur-inspirerad',
                 'autumn-abstracts-category': '🍁 Höstabstrakter',
                 'bold-artistic-category': '❤️ Djärv & Konstnärlig',
                 'shimmer-flow-category': '🍂 Skimmer & Flöde',
-                closeBtn: 'Stäng'
             }
         };
-        
-        // Product data with categories
-        const products = [];
-        const categories = [
-            { id: 'nature-inspired', nameKey: 'nature-inspired-category', color: 'c9e4c1' }, // Soft pastels
-            { id: 'autumn-abstracts', nameKey: 'autumn-abstracts-category', color: 'd28a52' }, // Bold colors
-            { id: 'bold-artistic', nameKey: 'bold-artistic-category', color: '4a4a4a' }, // High contrast
-            { id: 'shimmer-flow', nameKey: 'shimmer-flow-category', color: 'd4cfd8' } // Marbled, soft blends
-        ];
-
-        // Generate 12 products per category, for a total of 48 products
-        for (let i = 1; i <= 48; i++) {
-            const categoryIndex = (i - 1) % categories.length;
-            const category = categories[categoryIndex];
-            products.push({
-                id: i,
-                name: `Product ${i}`,
-                category: category.id,
-                price: Math.floor(Math.random() * 500) + 100, // Random price between 100 and 600
-                imageColor: category.color,
-            });
-            // Add translations for new products (simple example)
-            translations.en[`product${i}Name`] = `Product ${i}`;
-            translations.sv[`product${i}Name`] = `Produkt ${i}`;
-        }
         
         let currentLang = 'en';
 
         // Helper function to get product name translation
         function getTranslatedProductName(productId, lang) {
             const product = products.find(p => p.id === productId);
+            if (!product) return '';
             const productKey = `product${productId}Name`;
             return translations[lang][productKey] || product.name;
         }
@@ -463,12 +604,10 @@
 
                     categoryProducts.forEach(product => {
                         const translatedName = getTranslatedProductName(product.id, currentLang);
-                        const imageText = encodeURIComponent(translatedName.replace(/\s/g, '+'));
-                        const productImageSrc = `https://placehold.co/300x200/${product.imageColor}/fff?text=${imageText}`;
 
                         const productCardHtml = `
                             <div class="flex flex-col rounded-lg shadow-md transition-transform duration-200 hover:scale-105 border border-gray-100 p-4">
-                                <img src="${productImageSrc}" alt="${translatedName}" class="w-full rounded-lg mb-4">
+                                <img src="${product.imageSrc}" alt="${translatedName}" class="w-full rounded-lg mb-4">
                                 <p class="font-semibold text-lg text-gray-800">${translatedName}</p>
                                 <p class="text-teal-600 font-bold text-xl mb-4">${product.price} SEK</p>
                                 <button class="add-to-cart-button w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-id="${product.id}" data-lang-key="addToCartBtn">
@@ -656,7 +795,8 @@
                 cart.push({ id: product.id, name: product.name, price: product.price, quantity: 1 });
             }
             updateCart();
-            showModal(translations[currentLang].modalProductAddedTitle, translations[currentLang].modalProductAddedMessage(getTranslatedProductName(product.id, currentLang)));
+            const translatedName = getTranslatedProductName(product.id, currentLang);
+            showModal(translations[currentLang].modalProductAddedTitle, translations[currentLang].modalProductAddedMessage(translatedName));
         }
 
         // Function to remove a single product from the cart
@@ -754,12 +894,12 @@
                     const confirmationCode = generateConfirmationCode();
                     showModal(
                         translations[currentLang].modalPaymentSuccessTitle,
-                        translations[currentLang].modalPaymentSuccessMessage(confirmationCode, shippingInfo.emailAddress)
+                        translations[current.lang].modalPaymentSuccessMessage(confirmationCode, shippingInfo.emailAddress)
                     );
                 } else {
                     showModal(
                         translations[currentLang].modalPaymentFailedTitle,
-                        translations[currentLang].modalPaymentFailedMessage(shippingInfo.emailAddress)
+                        translations[current.lang].modalPaymentFailedMessage(shippingInfo.emailAddress)
                     );
                 }
             }, 2000);
