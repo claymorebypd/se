@@ -274,6 +274,7 @@
         let shippingInfo = {};
         
         // This is where you can customize each product's details and price.
+        // --- UPDATED PRODUCT LIST FOR PRICE TIERS (39, 49, 59, 79, 99 SEK) ---
         const products = [
             {
                 id: 1,
@@ -293,14 +294,14 @@
                 id: 3,
                 name: 'Midnight Bloom',
                 category: 'bold-artistic',
-                price: 49,
+                price: 59, // Price updated to 59 SEK
                 imageSrc: './images/product3.png'
             },
             {
                 id: 4,
                 name: 'Golden Flow',
                 category: 'shimmer-flow',
-                price: 59,
+                price: 79, // Price updated to 79 SEK
                 imageSrc: './images/product4.png'
             },
             {
@@ -321,14 +322,14 @@
                 id: 7,
                 name: 'Pink Crush',
                 category: 'bold-artistic',
-                price: 49,
+                price: 59, // Price updated to 59 SEK
                 imageSrc: './images/product7.png'
             },
             {
                 id: 8,
                 name: 'Mystic Swirl',
                 category: 'shimmer-flow',
-                price: 59,
+                price: 79, // Price updated to 79 SEK
                 imageSrc: './images/product8.png'
             },
             {
@@ -349,14 +350,14 @@
                 id: 11,
                 name: 'Red Hot',
                 category: 'bold-artistic',
-                price: 49,
+                price: 59, // Price updated to 59 SEK
                 imageSrc: './images/product11.png'
             },
             {
                 id: 12,
                 name: 'Silver Mist',
                 category: 'shimmer-flow',
-                price: 59,
+                price: 79, // Price updated to 79 SEK
                 imageSrc: './images/product12.png'
             },
             {
@@ -377,7 +378,7 @@
                 id: 15,
                 name: 'Silver Lining',
                 category: 'shimmer-flow',
-                price: 59,
+                price: 79, // Price updated to 79 SEK
                 imageSrc: './images/product15.png'
             },
             {
@@ -412,31 +413,298 @@
                 id: 20,
                 name: 'Pearl Drops',
                 category: 'shimmer-flow',
-                price: 59,
+                price: 99, // New highest price tier 99 SEK
                 imageSrc: './images/product20.png'
             },
             {
                 id: 21,
                 name: 'Sunrise Burst',
                 category: 'bold-artistic',
-                price: 49,
+                price: 59, // Price updated to 59 SEK
                 imageSrc: './images/product21.png'
             },
             {
                 id: 23,
                 name: 'Earthy Hues',
                 category: 'autumn-abstracts',
-                price: 49,
+                price: 39, // Price updated to 39 SEK
                 imageSrc: './images/product23.png'
-            }
+            },
+            // --- NEW PRODUCTS ADDED IN PREVIOUS STEP ---
+            {
+                id: 24,
+                name: 'Abstract Rainbow',
+                category: 'bold-artistic',
+                price: 79,
+                imageSrc: './images/product24.png'
+            },
+            {
+                id: 25,
+                name: 'Ocean Bead Bracelet',
+                category: 'bracelets',
+                price: 49,
+                imageSrc: './images/product25.png'
+            },
+            {
+                id: 26,
+                name: 'Diamond Shimmer Drops',
+                category: 'shimmer-flow',
+                price: 99,
+                imageSrc: './images/product26.png'
+            },
+            {
+                id: 27,
+                name: 'Desert Clay Bangle',
+                category: 'bracelets',
+                price: 59,
+                imageSrc: './images/product27.png'
+            },
+            {
+                id: 28,
+                name: 'Mini Forest Sprig',
+                category: 'nature-inspired',
+                price: 39,
+                imageSrc: './images/product28.png'
+            },
+            {
+                id: 29,
+                name: 'Rainbow Strand Bracelet',
+                category: 'bracelets',
+                price: 49,
+                imageSrc: './images/product29.png'
+            },
+            {
+                id: 30,
+                name: 'Autumn Swirl Ovals',
+                category: 'autumn-abstracts',
+                price: 59,
+                imageSrc: './images/product30.png'
+            },
+            {
+                id: 31,
+                name: 'Sculpted Teal Flower',
+                category: 'bold-artistic',
+                price: 99,
+                imageSrc: './images/product31.png'
+            },
+            {
+                id: 32,
+                name: 'Bohemian Wide Cuff',
+                category: 'bracelets',
+                price: 79,
+                imageSrc: './images/product32.png'
+            },
+            {
+                id: 33,
+                name: 'Pearlescent Teardrop',
+                category: 'shimmer-flow',
+                price: 59,
+                imageSrc: './images/product33.png'
+            },
+            // --- NEW PRODUCTS ADDED: IDs 34 to 43 ---
+            {
+                id: 34,
+                name: 'Ruby Splash',
+                category: 'bold-artistic',
+                price: 59,
+                imageSrc: './images/product34.png'
+            },
+            {
+                id: 35,
+                name: 'Ocean Tide Cuff',
+                category: 'bracelets',
+                price: 79,
+                imageSrc: './images/product35.png'
+            },
+            {
+                id: 36,
+                name: 'Golden Halo',
+                category: 'shimmer-flow',
+                price: 99,
+                imageSrc: './images/product36.png'
+            },
+            {
+                id: 37,
+                name: 'Jade Teardrop',
+                category: 'nature-inspired',
+                price: 39,
+                imageSrc: './images/product37.png'
+            },
+            {
+                id: 38,
+                name: 'Obsidian Twist',
+                category: 'bracelets',
+                price: 79,
+                imageSrc: './images/product38.png'
+            },
+            {
+                id: 39,
+                name: 'Cherry Blossom',
+                category: 'nature-inspired',
+                price: 49,
+                imageSrc: './images/product39.png'
+            },
+            {
+                id: 40,
+                name: 'Terra Cotta Geo',
+                category: 'bracelets',
+                price: 59,
+                imageSrc: './images/product40.png'
+            },
+            {
+                id: 41,
+                name: 'Vibrant Zenith',
+                category: 'shimmer-flow',
+                price: 79,
+                imageSrc: './images/product41.png'
+            },
+            {
+                id: 42,
+                name: 'Lemon Zest Stack',
+                category: 'bracelets',
+                price: 49,
+                imageSrc: './images/product42.png'
+            },
+            {
+                id: 43,
+                name: 'Neutral Geo Drop',
+                category: 'autumn-abstracts',
+                price: 59,
+                imageSrc: './images/product43.png'
+            },
+            // --- NEW PRODUCTS ADDED: IDs 44 to 53 ---
+            {
+                id: 44,
+                name: 'Golden Weave Drops',
+                category: 'shimmer-flow',
+                price: 79,
+                imageSrc: './images/product44.png'
+            },
+            {
+                id: 45,
+                name: 'Azure Stone',
+                category: 'nature-inspired',
+                price: 39,
+                imageSrc: './images/product45.png'
+            },
+            {
+                id: 46,
+                name: 'Color Block Cuff',
+                category: 'bracelets',
+                price: 79,
+                imageSrc: './images/product46.png'
+            },
+            {
+                id: 47,
+                name: 'Flamingo Flare',
+                category: 'bold-artistic',
+                price: 59,
+                imageSrc: './images/product47.png'
+            },
+            {
+                id: 48,
+                name: 'Rust Marble Drop',
+                category: 'autumn-abstracts',
+                price: 49,
+                imageSrc: './images/product48.png'
+            },
+            {
+                id: 49,
+                name: 'Turquoise Stack',
+                category: 'bracelets',
+                price: 49,
+                imageSrc: './images/product49.png'
+            },
+            {
+                id: 50,
+                name: 'Ice Diamond Cut',
+                category: 'shimmer-flow',
+                price: 99,
+                imageSrc: './images/product50.png'
+            },
+            {
+                id: 51,
+                name: 'Zebra Stripes',
+                category: 'bold-artistic',
+                price: 59,
+                imageSrc: './images/product51.png'
+            },
+            {
+                id: 52,
+                name: 'Moss Green Studs',
+                category: 'nature-inspired',
+                price: 39,
+                imageSrc: './images/product52.png'
+            },
+            {
+                id: 53,
+                name: 'Layered Pearl Bangle',
+                category: 'bracelets',
+                price: 99,
+                imageSrc: './images/product53.png'
+            },
+            // --- NEW PRODUCTS ADDED: IDs 54 to 103 (50 more products) ---
+            { id: 54, name: 'Tropical Hibiscus', category: 'nature-inspired', price: 39, imageSrc: './images/product54.png' },
+            { id: 55, name: 'Desert Bloom', category: 'autumn-abstracts', price: 49, imageSrc: './images/product55.png' },
+            { id: 56, name: 'Neon Geo Burst', category: 'bold-artistic', price: 59, imageSrc: './images/product56.png' },
+            { id: 57, name: 'Mercury Ripple', category: 'shimmer-flow', price: 79, imageSrc: './images/product57.png' },
+            { id: 58, name: 'Chunky Clay Ring', category: 'bracelets', price: 99, imageSrc: './images/product58.png' },
+            { id: 59, name: 'Sky Blue Studs', category: 'nature-inspired', price: 39, imageSrc: './images/product59.png' },
+            { id: 60, name: 'Maple Syrup Drops', category: 'autumn-abstracts', price: 49, imageSrc: './images/product60.png' },
+            { id: 61, name: 'Electric Pink Wave', category: 'bold-artistic', price: 59, imageSrc: './images/product61.png' },
+            { id: 62, name: 'Diamond Cut Bangle', category: 'shimmer-flow', price: 79, imageSrc: './images/product62.png' },
+            { id: 63, name: 'Twisted Vine Cuff', category: 'bracelets', price: 99, imageSrc: './images/product63.png' },
+            { id: 64, name: 'Lavender Field', category: 'nature-inspired', price: 39, imageSrc: './images/product64.png' },
+            { id: 65, name: 'Burnt Orange Hex', category: 'autumn-abstracts', price: 49, imageSrc: './images/product65.png' },
+            { id: 66, name: 'Rainbow Zig-Zag', category: 'bold-artistic', price: 59, imageSrc: './images/product66.png' },
+            { id: 67, name: 'Galactic Glitter', category: 'shimmer-flow', price: 79, imageSrc: './images/product67.png' },
+            { id: 68, name: 'Simple Dot Ring', category: 'bracelets', price: 99, imageSrc: './images/product68.png' },
+            { id: 69, name: 'Willow Branch', category: 'nature-inspired', price: 39, imageSrc: './images/product69.png' },
+            { id: 70, name: 'Goldenrod Ovals', category: 'autumn-abstracts', price: 49, imageSrc: './images/product70.png' },
+            { id: 71, name: 'Abstract Face', category: 'bold-artistic', price: 59, imageSrc: './images/product71.png' },
+            { id: 72, name: 'Platinum Shine', category: 'shimmer-flow', price: 79, imageSrc: './images/product72.png' },
+            { id: 73, name: 'Wide Woven Bracelet', category: 'bracelets', price: 99, imageSrc: './images/product73.png' },
+            { id: 74, name: 'Pebble Stack', category: 'nature-inspired', price: 39, imageSrc: './images/product74.png' },
+            { id: 75, name: 'Cinnamon Stripe', category: 'autumn-abstracts', price: 49, imageSrc: './images/product75.png' },
+            { id: 76, name: 'Bold Aqua Square', category: 'bold-artistic', price: 59, imageSrc: './images/product76.png' },
+            { id: 77, name: 'Rose Gold Leaf', category: 'shimmer-flow', price: 79, imageSrc: './images/product77.png' },
+            { id: 78, name: 'Geometric Ring Set', category: 'bracelets', price: 99, imageSrc: './images/product78.png' },
+            { id: 79, name: 'Dewdrop Cluster', category: 'nature-inspired', price: 39, imageSrc: './images/product79.png' },
+            { id: 80, name: 'Cranberry Dot', category: 'autumn-abstracts', price: 49, imageSrc: './images/product80.png' },
+            { id: 81, name: 'Bauhaus Circles', category: 'bold-artistic', price: 59, imageSrc: './images/product81.png' },
+            { id: 82, name: 'Holographic Prism', category: 'shimmer-flow', price: 79, imageSrc: './images/product82.png' },
+            { id: 83, name: 'Black Marble Cuff', category: 'bracelets', price: 99, imageSrc: './images/product83.png' },
+            { id: 84, name: 'Bamboo Teardrop', category: 'nature-inspired', price: 39, imageSrc: './images/product84.png' },
+            { id: 85, name: 'Olive Green Tile', category: 'autumn-abstracts', price: 49, imageSrc: './images/product85.png' },
+            { id: 86, name: 'Fire Engine Red', category: 'bold-artistic', price: 59, imageSrc: './images/product86.png' },
+            { id: 87, name: 'Iridescent Shell', category: 'shimmer-flow', price: 79, imageSrc: './images/product87.png' },
+            { id: 88, name: 'Thin Gold Bangle', category: 'bracelets', price: 99, imageSrc: './images/product88.png' },
+            { id: 89, name: 'Seafoam Green', category: 'nature-inspired', price: 39, imageSrc: './images/product89.png' },
+            { id: 90, name: 'Rusty Metal Abstract', category: 'autumn-abstracts', price: 49, imageSrc: './images/product90.png' },
+            { id: 91, name: 'Primary Color Block', category: 'bold-artistic', price: 59, imageSrc: './images/product91.png' },
+            { id: 92, name: 'Copper Veins', category: 'shimmer-flow', price: 79, imageSrc: './images/product92.png' },
+            { id: 93, name: 'Statement Pearl Cuff', category: 'bracelets', price: 99, imageSrc: './images/product93.png' },
+            { id: 94, name: 'Cactus Flower Studs', category: 'nature-inspired', price: 39, imageSrc: './images/product94.png' },
+            { id: 95, name: 'Mustard Yellow Dangle', category: 'autumn-abstracts', price: 49, imageSrc: './images/product95.png' },
+            { id: 96, name: 'Pop Art Circles', category: 'bold-artistic', price: 59, imageSrc: './images/product96.png' },
+            { id: 97, name: 'Chrome Glaze', category: 'shimmer-flow', price: 79, imageSrc: './images/product97.png' },
+            { id: 98, name: 'Simple Stone Ring', category: 'bracelets', price: 99, imageSrc: './images/product98.png' },
+            { id: 99, name: 'Snowdrop Petals', category: 'nature-inspired', price: 39, imageSrc: './images/product99.png' },
+            { id: 100, name: 'Forest Bark Swirl', category: 'autumn-abstracts', price: 49, imageSrc: './images/product100.png' },
+            { id: 101, name: 'Doodle Shapes', category: 'bold-artistic', price: 59, imageSrc: './images/product101.png' },
+            { id: 102, name: 'Rainbow Shard', category: 'shimmer-flow', price: 79, imageSrc: './images/product102.png' },
+            { id: 103, name: 'Double Layer Bangle', category: 'bracelets', price: 99, imageSrc: './images/product103.png' }
+            // --- END OF NEW PRODUCTS ---
         ];
         
         // Object for translations
+        // --- ADDED NEW CATEGORY FOR BRACELETS ---
         const categories = [
             { id: 'nature-inspired', nameKey: 'nature-inspired-category' },
             { id: 'autumn-abstracts', nameKey: 'autumn-abstracts-category' },
             { id: 'bold-artistic', nameKey: 'bold-artistic-category' },
-            { id: 'shimmer-flow', nameKey: 'shimmer-flow-category' }
+            { id: 'shimmer-flow', nameKey: 'shimmer-flow-category' },
+            { id: 'bracelets', nameKey: 'bracelets-category' } // New category
         ];
 
         const translations = {
@@ -500,10 +768,11 @@
                 removeItemBtn: 'Remove',
                 closeBtn: 'Close',
                 // Category translations
-                'nature-inspired-category': '🌿 Nature-Inspired',
-                'autumn-abstracts-category': '🍁 Autumn Abstracts',
-                'bold-artistic-category': '❤️ Bold & Artistic',
-                'shimmer-flow-category': '🍂 Shimmer & Flöde',
+                'nature-inspired-category': '🌿 Nature-Inspired Earrings',
+                'autumn-abstracts-category': '🍁 Autumn Abstract Earrings',
+                'bold-artistic-category': '❤️ Bold & Artistic Earrings',
+                'shimmer-flow-category': '🍂 Shimmer & Flow Earrings',
+                'bracelets-category': '✨ Handcrafted Bracelets', // New translation
             },
             sv: {
                 navProducts: 'Produkter',
@@ -532,7 +801,7 @@
                 contactFeedbackLabel: 'Din Feedback',
                 contactSubmitBtn: 'Skicka Meddelande',
                 cartTitle: 'Din Varukorg',
-                emptyCartMessage: 'Din varukorg är tom. Lägg till några produkter för att komma igång!',
+                emptyCartMessage: 'Din varukorg är tom. Lägg till varor för att gå till kassan.',
                 cartTotalLabel: 'Totalt:',
                 clearCartBtn: 'Töm varukorg',
                 checkoutBtn: 'Gå till kassan',
@@ -565,10 +834,11 @@
                 removeItemBtn: 'Ta bort',
                 closeBtn: 'Stäng',
                 // Category translations
-                'nature-inspired-category': '🌿 Natur-inspirerad',
-                'autumn-abstracts-category': '🍁 Höstabstrakter',
-                'bold-artistic-category': '❤️ Djärv & Konstnärlig',
-                'shimmer-flow-category': '🍂 Skimmer & Flöde',
+                'nature-inspired-category': '🌿 Natur-inspirerade Örhängen',
+                'autumn-abstracts-category': '🍁 Höstabstrakta Örhängen',
+                'bold-artistic-category': '❤️ Djärva & Konstnärliga Örhängen',
+                'shimmer-flow-category': '🍂 Skimmer & Flöde Örhängen',
+                'bracelets-category': '✨ Handgjorda Armband', // New translation
             }
         };
         
@@ -612,7 +882,8 @@
 
                         const productCardHtml = `
                             <div class="flex flex-col rounded-lg shadow-md transition-transform duration-200 hover:scale-105 border border-gray-100 p-4">
-                                <img src="${product.imageSrc}" alt="${translatedName}" class="w-full rounded-lg mb-4">
+                                <!-- Ensure the image source correctly points to the uploaded file names -->
+                                <img src="./images/${product.imageSrc.split('/').pop()}" alt="${translatedName}" class="w-full h-48 object-cover rounded-lg mb-4">
                                 <p class="font-semibold text-lg text-gray-800">${translatedName}</p>
                                 <p class="text-teal-600 font-bold text-xl mb-4">${product.price} SEK</p>
                                 <button class="add-to-cart-button w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-id="${product.id}" data-lang-key="addToCartBtn">
@@ -899,12 +1170,12 @@
                     const confirmationCode = generateConfirmationCode();
                     showModal(
                         translations[currentLang].modalPaymentSuccessTitle,
-                        translations[current.lang].modalPaymentSuccessMessage(confirmationCode, shippingInfo.emailAddress)
+                        translations[currentLang].modalPaymentSuccessMessage(confirmationCode, shippingInfo.emailAddress)
                     );
                 } else {
                     showModal(
                         translations[currentLang].modalPaymentFailedTitle,
-                        translations[current.lang].modalPaymentFailedMessage(shippingInfo.emailAddress)
+                        translations[currentLang].modalPaymentFailedMessage(shippingInfo.emailAddress)
                     );
                 }
             }, 2000);
