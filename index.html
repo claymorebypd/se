@@ -12,42 +12,57 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f0fdfa; /* A light teal background */
+            background-color: #fcfbf8; /* A very soft cream/off-white for a handmade feel */
+        }
+
+        /* Make headers feel special */
+        h1, h2, h3 {
+            color: #1e3a8a; /* A deep blue-gray for sophisticated contrast */
         }
 
         /* Style for the active navigation link */
         .nav-link.active {
-            font-weight: bold;
-            color: #0f766e; /* Darker teal for active link */
-            border-bottom: 2px solid #0f766e;
+            font-weight: 700; /* Bold */
+            color: #0d9488; /* A rich teal */
+            border-bottom: 3px solid #0d9488;
+            padding-bottom: 4px;
         }
 
+        /* Quantity controls */
         .quantity-control button {
-            @apply bg-gray-200 text-gray-800 font-bold w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200;
+            /* Using a soft teal background for quantity buttons */
+            @apply bg-teal-50 text-teal-700 font-bold w-7 h-7 rounded-full flex items-center justify-center transition-colors duration-200 border border-teal-200;
         }
 
         .quantity-control button:hover {
-            @apply bg-gray-300;
+            @apply bg-teal-200;
+        }
+
+        /* Input field focusing */
+        input:focus, textarea:focus {
+            border-color: #0d9488 !important; /* Rich teal focus ring */
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.5); 
         }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
     <!-- Header and Navigation -->
-    <header class="bg-white shadow-md p-4">
+    <header class="bg-white shadow-lg p-6 sticky top-0 z-10 border-b border-gray-100">
         <nav class="container mx-auto flex flex-col sm:flex-row justify-between items-center">
-            <a href="#" onclick="showPage('products-page')" class="text-2xl font-bold text-gray-900 mb-4 sm:mb-0">Claymore by PD</a>
-            <div class="space-x-4 flex items-center flex-wrap justify-center">
-                <a href="#" onclick="showPage('products-page')" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-lang-key="navProducts">Products</a>
-                <a href="#" onclick="showPage('about-us-page')" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-lang-key="navAbout">About Us</a>
-                <a href="#" onclick="showPage('contact-us-page')" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-lang-key="navContact">Contact Us</a>
+            <a href="#" onclick="showPage('products-page')" class="text-3xl font-bold text-teal-700 mb-4 sm:mb-0">Claymore by PD</a>
+            <div class="space-x-6 flex items-center flex-wrap justify-center">
+                <a href="#" onclick="showPage('products-page')" class="nav-link text-gray-700 hover:text-teal-600 transition-all duration-300" data-lang-key="navProducts">Products</a>
+                <a href="#" onclick="showPage('about-us-page')" class="nav-link text-gray-700 hover:text-teal-600 transition-all duration-300" data-lang-key="navAbout">About Us</a>
+                <a href="#" onclick="showPage('contact-us-page')" class="nav-link text-gray-700 hover:text-teal-600 transition-all duration-300" data-lang-key="navContact">Contact Us</a>
                 <!-- Cart Icon with Item Count -->
-                <a href="#" onclick="showPage('cart-page')" class="relative nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 ml-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13-.3 8.3m0 0a2 2 0 110-4 2 2 0 010 4zm16 0a2 2 0 110-4 2 2 0 010 4z"></path></svg>
-                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center p-1">0</span>
+                <a href="#" onclick="showPage('cart-page')" class="relative nav-link text-gray-700 hover:text-teal-600 transition-colors duration-300 ml-6">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13-.3 8.3m0 0a2 2 0 110-4 2 2 0 010 4zm16 0a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                    <!-- Cart count is now visible pink for high contrast -->
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center p-1">0</span>
                 </a>
-                <!-- Language Dropdown -->
-                <select id="language-selector" class="bg-gray-100 rounded-lg py-1 px-2 text-sm">
+                <!-- Language Dropdown, improved styling -->
+                <select id="language-selector" class="bg-gray-50 border border-gray-300 rounded-xl py-2 px-3 text-sm focus:ring-teal-500 focus:border-teal-500">
                     <option value="en">EN</option>
                     <option value="sv">SV</option>
                 </select>
@@ -60,20 +75,22 @@
         
         <!-- Products Page Section -->
         <section id="products-page" class="w-full">
-            <div class="bg-white rounded-lg shadow-xl p-8 max-w-3xl mx-auto mb-8">
+            <!-- Main welcome block, updated rounded-xl -->
+            <div class="bg-white rounded-xl shadow-xl p-8 max-w-3xl mx-auto mb-10 border border-gray-100">
                 <div class="text-center">
                     <h1 class="text-3xl font-bold text-gray-800 mb-4" data-lang-key="welcomeTitle">Handmade with Love ❤️</h1>
                     <p class="text-gray-600 text-lg mb-6 leading-relaxed" data-lang-key="welcomeText">
                         Explore our latest collection of products. Each item is available for immediate purchase through our secure checkout.
                     </p>
                 </div>
-                <!-- Banner image with data attribute for dynamic text -->
-                <img id="banner-image" src="https://placehold.co/800x450/e0f2f7/0e7490" alt="Autumn collections - 2025" class="w-full rounded-lg shadow-md mb-8" data-lang-key="bannerText">
+                <!-- Banner image, updated rounded-xl -->
+                <img id="banner-image" src="./images/autumn092025.jpg" alt="Autumn Market Sale Collage 2025" class="w-full h-auto max-h-96 object-cover rounded-xl shadow-md mb-8" data-lang-key="bannerText">
             </div>
 
-            <div class="bg-white rounded-lg shadow-xl p-8">
+            <!-- Product collection block, updated rounded-xl -->
+            <div class="bg-white rounded-xl shadow-xl p-8 border border-gray-100">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="productsTitle">Our Product Collection</h2>
-                <p class="text-gray-600 leading-relaxed mb-6" data-lang-key="productsText">
+                <p class="text-gray-600 leading-relaxed mb-8" data-lang-key="productsText">
                     At ClayCharm, we believe jewelry should be as fun, unique, and full of personality as the person who wears it.
                     Every piece is handmade with love using colorful polymer clay, designed to add that perfect pop of charm and creativity to any look.
                 </p>
@@ -84,7 +101,8 @@
 
         <!-- About Us Page Section -->
         <section id="about-us-page" class="w-full max-w-5xl hidden">
-            <div class="bg-white rounded-lg shadow-xl p-8 mb-8">
+            <!-- About block 1, updated rounded-xl -->
+            <div class="bg-white rounded-xl shadow-xl p-8 mb-8 border border-gray-100">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="aboutTitle">About Our Company</h2>
                 <p class="text-gray-600 leading-relaxed mb-4" data-lang-key="aboutParagraph1">
                     At ClayCharm, we believe that jewelry isn’t just about accessorizing—it’s about expressing your unique personality, creativity, and style. Each of our pieces is handmade with love, using colorful polymer clay to create one-of-a-kind designs that add charm, joy, and a touch of magic to every outfit.
@@ -93,11 +111,11 @@
                     From vibrant, colorful pieces to elegant, subtle designs, ClayCharm offers something for every woman who loves to express herself through fashion. Each piece is carefully crafted to make you feel special and add that perfect charm to your look—no matter the occasion.
                 </p>
             </div>
-            <!-- New section for "Meet the Maker" -->
-            <div class="bg-white rounded-lg shadow-xl p-8 flex flex-col md:flex-row items-center md:items-start gap-8">
+            <!-- Meet the Maker block, updated rounded-xl -->
+            <div class="bg-white rounded-xl shadow-xl p-8 flex flex-col md:flex-row items-center md:items-start gap-8 border border-gray-100">
                 <!-- Maker's Image -->
-                <!-- Replace this placeholder with the actual URL to your image -->
-                <img src="./images/IMG_2240.jpg" alt="Priyadharshini, the maker of ClayCharm" class="w-48 h-48 rounded-full object-cover shadow-lg flex-shrink-0">
+                <!-- Use a slightly larger, defined container for the image -->
+                <img src="./images/IMG_2240.jpg" alt="Priyadharshini, the maker of ClayCharm" class="w-48 h-48 rounded-full object-cover shadow-lg flex-shrink-0 border-4 border-teal-200">
                 
                 <div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="meetTheMakerTitle">Meet the Maker</h3>
@@ -110,7 +128,8 @@
 
         <!-- Contact Us Page Section -->
         <section id="contact-us-page" class="w-full max-w-md hidden">
-            <div class="bg-white rounded-lg shadow-xl p-8">
+            <!-- Contact block, updated rounded-xl -->
+            <div class="bg-white rounded-xl shadow-xl p-8 border border-gray-100">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="contactTitle">Get in Touch</h2>
                 <!-- Contact information -->
                 <div class="mb-6 space-y-4">
@@ -126,7 +145,7 @@
                     </div>
                     <div class="flex items-center space-x-2">
                         <svg class="w-6 h-6 text-teal-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2.163c3.226 0 3.635.012 4.903.07a8.514 8.514 0 011.595.31c.64.163 1.155.385 1.558.887a4.912 4.912 0 01.887 1.558c.158.558.267 1.25.31 1.595.058 1.268.07 1.677.07 4.903s-.012 3.635-.07 4.903a8.514 8.514 0 01-.31 1.595c-.163.64-.385 1.155-.887 1.558a4.912 4.912 0 01-1.558.887c-.558.158-1.25.267-1.595.31-1.268.058-1.677.07-4.903.07s-3.635-.012-4.903-.07a8.514 8.514 0 01-1.595-.31c-.64-.163-1.155-.385-1.558-.887a4.912 4.912 0 01-.887-1.558c-.158-.558-.267-1.25-.31-1.595-.058-1.268-.07-1.677-.07-4.903s.012-3.635.07-4.903a8.514 8.514 0 01.31-1.595c.163-.64.385-1.155.887-1.558a4.912 4.912 0 011.558-.887c.558-.158 1.25-.267 1.595-.31 1.268-.058 1.677-.07 4.903-.07zm0 14.615A6.615 6.615 0 1012 5.385a6.615 6.615 0 010 13.23zm-3.615-9.615a.998.998 0 110-2 .998.998 0 010 2zM12 8a4 4 0 110 8 4 4 0 010-8z"/>
+                            <path d="M12 2.163c3.226 0 3.635.012 4.903.07a8.514 8.514 0 011.595.31c.64.163 1.155.385 1.558.887a4.912 4.912 0 01.887 1.558c.158.558.267 1.25.31 1.595.058 1.268.07 1.677.07 4.903s-.012 3.635-.07 4.903a8.514 8.514 0 01-.31 1.595c-.163.64-.385 1.155-.887 1.558a4.912 4.912 0 01-1.558.887c-.558.158-1.25.267-1.595.31-1.268.058-1.677.07-4.903.07s-3.635-.012-4.903-.07a8.514 8.514 0 01-1.595-.31c-.64-.163-.385-1.155-.887-1.558a4.912 4.912 0 01-.887-1.558c-.158-.558-.267-1.25-.31-1.595-.058-1.268-.07-1.677-.07-4.903s.012-3.635.07-4.903a8.514 8.514 0 01.31-1.595c.163-.64.385-1.155.887-1.558a4.912 4.912 0 011.558-.887c.558-.158 1.25-.267 1.595-.31 1.268-.058 1.677-.07 4.903-.07zm0 14.615A6.615 6.615 0 1012 5.385a6.615 6.615 0 010 13.23zm-3.615-9.615a.998.998 0 110-2 .998.998 0 010 2zM12 8a4 4 0 110 8 4 4 0 010-8z"/>
                         </svg>
                         <a href="https://www.instagram.com/claymore_bypd?igsh=MW41YTV0cWM5aWs1dA%3D%3D&utm_source=qr" target="_blank" class="text-teal-600 hover:underline">Instagram</a>
                     </div>
@@ -134,21 +153,21 @@
                 <form>
                     <div class="mb-4">
                         <label for="name" class="block text-gray-700 font-semibold mb-2" data-lang-key="contactNameLabel">Your Name</label>
-                        <input type="text" id="name" name="name" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                        <input type="text" id="name" name="name" class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500">
                     </div>
                     <div class="mb-4">
                         <label for="email" class="block text-gray-700 font-semibold mb-2" data-lang-key="contactEmailLabel">Your Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                        <input type="email" id="email" name="email" class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500">
                     </div>
                     <div class="mb-4">
                         <label for="message" class="block text-gray-700 font-semibold mb-2" data-lang-key="contactMessageLabel">Your Message</label>
-                        <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+                        <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
                     </div>
                     <div class="mb-6">
                         <label for="feedback" class="block text-gray-700 font-semibold mb-2" data-lang-key="contactFeedbackLabel">Your Feedback</label>
-                        <textarea id="feedback" name="feedback" rows="4" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+                        <textarea id="feedback" name="feedback" rows="4" class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200" data-lang-key="contactSubmitBtn">
+                    <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition-colors duration-200" data-lang-key="contactSubmitBtn">
                         Send Message
                     </button>
                 </form>
@@ -157,25 +176,26 @@
 
         <!-- Cart Page Section -->
         <section id="cart-page" class="w-full max-w-3xl hidden">
-            <div class="bg-white rounded-lg shadow-xl p-8">
+            <!-- Cart block, updated rounded-xl -->
+            <div class="bg-white rounded-xl shadow-xl p-8 border border-gray-100">
                 <h2 class="text-2xl font-bold text-gray-800 mb-6" data-lang-key="cartTitle">Your Shopping Cart</h2>
                 <div id="cart-items" class="space-y-4">
                     <!-- Cart items will be rendered here dynamically -->
                     <p class="text-gray-500" id="empty-cart-message" data-lang-key="emptyCartMessage">Your cart is empty. Add some products to get started!</p>
                 </div>
-                <!-- Total amount line, now visually distinct -->
+                <!-- Total amount line, updated rounded-xl and color -->
                 <div class="mt-8 pt-4 border-t border-gray-200">
-                    <div class="flex justify-between items-center py-4 px-6 bg-teal-50 rounded-lg">
+                    <div class="flex justify-between items-center py-4 px-6 bg-teal-50 rounded-xl border border-teal-200">
                         <span class="text-lg font-bold text-teal-800" data-lang-key="cartTotalLabel">Total:</span>
                         <span class="text-2xl font-bold text-teal-800"><span id="cart-total">0</span> SEK</span>
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row justify-end items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
-                    <button id="clear-cart-button" class="w-full sm:w-auto bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-lang-key="clearCartBtn">
+                    <button id="clear-cart-button" class="w-full sm:w-auto bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-xl transition-colors duration-200" data-lang-key="clearCartBtn">
                         Clear Cart
                     </button>
-                    <!-- This button now navigates to the shipping page -->
-                    <button id="checkout-button" class="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-lang-key="checkoutBtn">
+                    <!-- Checkout button with shadow -->
+                    <button id="checkout-button" class="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition-colors duration-200" data-lang-key="checkoutBtn">
                         Checkout
                     </button>
                 </div>
@@ -184,34 +204,35 @@
 
         <!-- Shipping Page Section (NEW) -->
         <section id="shipping-page" class="w-full max-w-md hidden">
-            <div class="bg-white rounded-lg shadow-xl p-8">
+            <!-- Shipping block, updated rounded-xl -->
+            <div class="bg-white rounded-xl shadow-xl p-8 border border-gray-100">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="shippingTitle">Shipping Information</h2>
                 <form id="shipping-form">
                     <div class="mb-4">
                         <label for="fullName" class="block text-gray-700 font-semibold mb-2" data-lang-key="shippingNameLabel">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500" required>
+                        <input type="text" id="fullName" name="fullName" class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500" required>
                     </div>
                     <div class="mb-4">
                         <label for="emailAddress" class="block text-gray-700 font-semibold mb-2" data-lang-key="shippingEmailLabel">Email Address</label>
-                        <input type="email" id="emailAddress" name="emailAddress" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500" required>
+                        <input type="email" id="emailAddress" name="emailAddress" class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500" required>
                     </div>
                     <div class="mb-4">
                         <label for="address" class="block text-gray-700 font-semibold mb-2" data-lang-key="shippingAddressLabel">Address</label>
-                        <input type="text" id="address" name="address" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500" required>
+                        <input type="text" id="address" name="address" class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500" required>
                     </div>
                     <div class="mb-4">
                         <label for="city" class="block text-gray-700 font-semibold mb-2" data-lang-key="shippingCityLabel">City</label>
-                        <input type="text" id="city" name="city" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500" required>
+                        <input type="text" id="city" name="city" class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500" required>
                     </div>
                     <div class="mb-4">
                         <label for="zipCode" class="block text-gray-700 font-semibold mb-2" data-lang-key="shippingZipLabel">Zip Code</label>
-                        <input type="text" id="zipCode" name="zipCode" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500" required>
+                        <input type="text" id="zipCode" name="zipCode" class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500" required>
                     </div>
                     <div class="mb-6">
                         <label for="country" class="block text-gray-700 font-semibold mb-2" data-lang-key="shippingCountryLabel">Country</label>
-                        <input type="text" id="country" name="country" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500" required>
+                        <input type="text" id="country" name="country" class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500" required>
                     </div>
-                    <button type="submit" id="continue-button" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200" data-lang-key="continueBtn">
+                    <button type="submit" id="continue-button" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition-colors duration-200" data-lang-key="continueBtn">
                         Continue to Payment
                     </button>
                 </form>
@@ -220,7 +241,8 @@
 
         <!-- Review Page Section (NEW) -->
         <section id="review-page" class="w-full max-w-3xl hidden">
-            <div class="bg-white rounded-lg shadow-xl p-8">
+            <!-- Review block, updated rounded-xl -->
+            <div class="bg-white rounded-xl shadow-xl p-8 border border-gray-100">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="reviewTitle">Review Your Order</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Order Summary -->
@@ -244,7 +266,8 @@
                     </div>
                 </div>
                 <div class="mt-8 flex justify-end items-center">
-                    <button id="pay-button" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200" data-lang-key="payNowBtn">
+                    <!-- Pay button with shadow -->
+                    <button id="pay-button" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition-colors duration-200" data-lang-key="payNowBtn">
                         Pay Now
                     </button>
                 </div>
@@ -252,19 +275,19 @@
         </section>
     </main>
 
-    <!-- Payment Status Modal -->
-    <div id="paymentModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden">
-        <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-4 text-center overflow-y-auto max-h-[80vh]">
+    <!-- Payment Status Modal, updated rounded-xl and added border/shadow -->
+    <div id="paymentModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden z-20">
+        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full mx-4 text-center overflow-y-auto max-h-[80vh] border-t-4 border-teal-500">
             <h2 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-4"></h2>
             <p id="modalMessage" class="text-gray-600 mb-6"></p>
-            <button id="closeModalButton" class="flex-shrink-0 bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-lang-key="closeBtn">
+            <button id="closeModalButton" class="flex-shrink-0 bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition-colors duration-200" data-lang-key="closeBtn">
                 Close
             </button>
         </div>
     </div>
     
     <!-- Footer with Copyright -->
-    <footer class="bg-gray-100 py-6 mt-12 text-center text-gray-500 text-sm">
+    <footer class="bg-gray-200 py-6 mt-12 text-center text-gray-600 text-sm">
         <p>&copy; 2025 Bluden AB - Sweden</p>
     </footer>
 
@@ -273,435 +296,130 @@
         let cart = [];
         let shippingInfo = {};
         
-        // This is where you can customize each product's details and price.
-        // --- UPDATED PRODUCT LIST FOR PRICE TIERS (39, 49, 59, 79, 99 SEK) ---
+        // --- NEW CATEGORY DEFINITIONS ---
+        // 1. minimal_everyday: Simple studs, low complexity. (Price <= 42 SEK)
+        // 2. statement_artistic: Large dangles, bold patterns, high price. (Price >= 60 SEK)
+        // 3. nature_seasonal: Organic shapes, leaves, specific seasonal items.
+        // 4. bracelets_sets: Bracelets and multi-piece sets.
+        
         const products = [
-            {
-                id: 1,
-                name: 'Teal Drops',
-                category: 'nature-inspired',
-                price: 39,
-                imageSrc: './images/product1.png'
-            },
-            {
-                id: 2,
-                name: 'Autumn Leaves',
-                category: 'autumn-abstracts',
-                price: 49,
-                imageSrc: './images/product2.png'
-            },
-            {
-                id: 3,
-                name: 'Midnight Bloom',
-                category: 'bold-artistic',
-                price: 59, // Price updated to 59 SEK
-                imageSrc: './images/product3.png'
-            },
-            {
-                id: 4,
-                name: 'Golden Flow',
-                category: 'shimmer-flow',
-                price: 79, // Price updated to 79 SEK
-                imageSrc: './images/product4.png'
-            },
-            {
-                id: 5,
-                name: 'Ocean Waves',
-                category: 'nature-inspired',
-                price: 39,
-                imageSrc: './images/product5.png'
-            },
-            {
-                id: 6,
-                name: 'Fall Sunset',
-                category: 'autumn-abstracts',
-                price: 49,
-                imageSrc: './images/product6.png'
-            },
-            {
-                id: 7,
-                name: 'Pink Crush',
-                category: 'bold-artistic',
-                price: 59, // Price updated to 59 SEK
-                imageSrc: './images/product7.png'
-            },
-            {
-                id: 8,
-                name: 'Mystic Swirl',
-                category: 'shimmer-flow',
-                price: 79, // Price updated to 79 SEK
-                imageSrc: './images/product8.png'
-            },
-            {
-                id: 9,
-                name: 'Forest Ferns',
-                category: 'nature-inspired',
-                price: 39,
-                imageSrc: './images/product9.png'
-            },
-            {
-                id: 10,
-                name: 'Cranberry Twist',
-                category: 'autumn-abstracts',
-                price: 49,
-                imageSrc: './images/product10.png'
-            },
-            {
-                id: 11,
-                name: 'Red Hot',
-                category: 'bold-artistic',
-                price: 59, // Price updated to 59 SEK
-                imageSrc: './images/product11.png'
-            },
-            {
-                id: 12,
-                name: 'Silver Mist',
-                category: 'shimmer-flow',
-                price: 79, // Price updated to 79 SEK
-                imageSrc: './images/product12.png'
-            },
-            {
-                id: 13,
-                name: 'Crimson Twist',
-                category: 'bold-artistic',
-                price: 49,
-                imageSrc: './images/product13.png'
-            },
-            {
-                id: 14,
-                name: 'Azure Swirl',
-                category: 'bold-artistic',
-                price: 49,
-                imageSrc: './images/product14.png'
-            },
-            {
-                id: 15,
-                name: 'Silver Lining',
-                category: 'shimmer-flow',
-                price: 79, // Price updated to 79 SEK
-                imageSrc: './images/product15.png'
-            },
-            {
-                id: 16,
-                name: 'Green Marble',
-                category: 'nature-inspired',
-                price: 39,
-                imageSrc: './images/product16.png'
-            },
-            {
-                id: 17,
-                name: 'Fiery Heart',
-                category: 'bold-artistic',
-                price: 49,
-                imageSrc: './images/product17.png'
-            },
-            {
-                id: 18,
-                name: 'Forest Floor',
-                category: 'autumn-abstracts',
-                price: 49,
-                imageSrc: './images/product18.png'
-            },
-            {
-                id: 19,
-                name: 'Ocean Ripple',
-                category: 'bold-artistic',
-                price: 49,
-                imageSrc: './images/product19.png'
-            },
-            {
-                id: 20,
-                name: 'Pearl Drops',
-                category: 'shimmer-flow',
-                price: 99, // New highest price tier 99 SEK
-                imageSrc: './images/product20.png'
-            },
-            {
-                id: 21,
-                name: 'Sunrise Burst',
-                category: 'bold-artistic',
-                price: 59, // Price updated to 59 SEK
-                imageSrc: './images/product21.png'
-            },
-            {
-                id: 23,
-                name: 'Earthy Hues',
-                category: 'autumn-abstracts',
-                price: 39, // Price updated to 39 SEK
-                imageSrc: './images/product23.png'
-            },
-            // --- UPDATED FROM CSV: IDs 24 to 87 (64 products) ---
-            {
-                id: 24,
-                name: 'Simple Pumpkin Stud',
-                category: 'bold-artistic',
-                price: 30,
-                imageSrc: './images/product24.png'
-            },
-            {
-                id: 25,
-                name: 'Gold-Stripe Half-Circle Stud',
-                category: 'bracelets',
-                price: 30,
-                imageSrc: './images/product25.png'
-            },
-            {
-                id: 26,
-                name: 'Teal Triangle Stud',
-                category: 'shimmer-flow',
-                price: 30,
-                imageSrc: './images/product26.png'
-            },
-            {
-                id: 27,
-                name: 'Mitten Accent Stud',
-                category: 'bracelets',
-                price: 30,
-                imageSrc: './images/product27.png'
-            },
-            {
-                id: 28,
-                name: 'Marbled Triangle Clip-on',
-                category: 'nature-inspired',
-                price: 30,
-                imageSrc: './images/product28.png'
-            },
-            {
-                id: 29,
-                name: 'Maple Leaf Stud',
-                category: 'bracelets',
-                price: 30,
-                imageSrc: './images/product29.png'
-            },
-            {
-                id: 30,
-                name: 'Ombre Pumpkin Dangle',
-                category: 'autumn-abstracts',
-                price: 30,
-                imageSrc: './images/product30.png'
-            },
-            {
-                id: 31,
-                name: 'Ombre Leaf Dangle',
-                category: 'bold-artistic',
-                price: 30,
-                imageSrc: './images/product31.png'
-            },
-            {
-                id: 32,
-                name: 'Marbled Diamond Clip-on',
-                category: 'bracelets',
-                price: 30,
-                imageSrc: './images/product32.png'
-            },
-            {
-                id: 33,
-                name: 'Abstract Art Hexagon Dangle',
-                category: 'shimmer-flow',
-                price: 60,
-                imageSrc: './images/product33.png'
-            },
-            {
-                id: 34,
-                name: 'Marbled Bezel Ball Dangle',
-                category: 'bold-artistic',
-                price: 60,
-                imageSrc: './images/product34.png'
-            },
-            {
-                id: 35,
-                name: 'Marbled Bezel Hook Dangle',
-                category: 'bracelets',
-                price: 60,
-                imageSrc: './images/product35.png'
-            },
-            {
-                id: 36,
-                name: 'Striped Pebble Statement Stud',
-                category: 'shimmer-flow',
-                price: 42,
-                imageSrc: './images/product36.png'
-            },
-            {
-                id: 37,
-                name: 'Large Marbled Oval Stud',
-                category: 'nature-inspired',
-                price: 42,
-                imageSrc: './images/product37.png'
-            },
-            {
-                id: 38,
-                name: 'Half-Rainbow Stud',
-                category: 'bracelets',
-                price: 60,
-                imageSrc: './images/product38.png'
-            },
-            {
-                id: 39,
-                name: 'Green Leaf Wreath Stud',
-                category: 'nature-inspired',
-                price: 60,
-                imageSrc: './images/product39.png'
-            },
-            {
-                id: 40,
-                name: 'Full-Rainbow Stud',
-                category: 'bracelets',
-                price: 60,
-                imageSrc: './images/product40.png'
-            },
-            {
-                id: 41,
-                name: 'Textured Flower Stud',
-                category: 'shimmer-flow',
-                price: 42,
-                imageSrc: './images/product41.png'
-            },
-            {
-                id: 42,
-                name: 'Splatter Pebble Stud',
-                category: 'bracelets',
-                price: 42,
-                imageSrc: './images/product42.png'
-            },
-            {
-                id: 43,
-                name: 'Marbled 3D Flower Stud',
-                category: 'autumn-abstracts',
-                price: 42,
-                imageSrc: './images/product43.png'
-            },
-            {
-                id: 44,
-                name: 'Layered Rainbow Dangle',
-                category: 'shimmer-flow',
-                price: 60,
-                imageSrc: './images/product44.png'
-            },
-            {
-                id: 45,
-                name: 'Striped Oval Statement Stud',
-                category: 'nature-inspired',
-                price: 42,
-                imageSrc: './images/product45.png'
-            },
-            {
-                id: 46,
-                name: 'Geometric Link Dangle',
-                category: 'bracelets',
-                price: 72,
-                imageSrc: './images/product46.png'
-            },
-            {
-                id: 47,
-                name: 'Scalloped Red Dangle',
-                category: 'bold-artistic',
-                price: 72,
-                imageSrc: './images/product47.png'
-            },
-            {
-                id: 48,
-                name: 'Hot Air Balloon Dangle',
-                category: 'autumn-abstracts',
-                price: 72,
-                imageSrc: './images/product48.png'
-            },
-            {
-                id: 49,
-                name: 'Abstract Hexagon Stud',
-                category: 'bracelets',
-                price: 60,
-                imageSrc: './images/product49.png'
-            },
-            {
-                id: 50,
-                name: 'Interlocking Ring Dangle',
-                category: 'shimmer-flow',
-                price: 72,
-                imageSrc: './images/product50.png'
-            },
-            {
-                id: 51,
-                name: 'Detailed Pumpkin Dangle',
-                category: 'bold-artistic',
-                price: 42,
-                imageSrc: './images/product51.png'
-            },
-            {
-                id: 52,
-                name: 'Marbled Tassel Dangle',
-                category: 'nature-inspired',
-                price: 72,
-                imageSrc: './images/product52.png'
-            },
-            {
-                id: 53,
-                name: 'Tree of Life Charm Dangle',
-                category: 'bracelets',
-                price: 72,
-                imageSrc: './images/product53.png'
-            },
-            { id: 54, name: 'Glitter Tassel Dangle', category: 'nature-inspired', price: 72, imageSrc: './images/product54.png' },
-            { id: 55, name: 'Abstract Marbled Arch Dangle', category: 'autumn-abstracts', price: 72, imageSrc: './images/product55.png' },
-            { id: 56, name: 'Neutral Tones Heishi Bracelet', category: 'bold-artistic', price: 42, imageSrc: './images/product56.png' },
-            { id: 57, name: 'Yellow Tones Heishi Bracelet', category: 'shimmer-flow', price: 42, imageSrc: './images/product57.png' },
-            { id: 58, name: 'Green/Teal Heishi Bracelet', category: 'bracelets', price: 42, imageSrc: './images/product58.png' },
-            { id: 59, name: 'Pink/White Heishi Bracelet', category: 'nature-inspired', price: 42, imageSrc: './images/product59.png' },
-            { id: 60, name: 'Purple Gradient Heishi Bracelet', category: 'autumn-abstracts', price: 42, imageSrc: './images/product60.png' },
-            { id: 61, name: 'Yellow Accent Heishi Bracelet', category: 'bold-artistic', price: 42, imageSrc: './images/product61.png' },
-            { id: 62, name: 'Cream/Gold Heishi Bracelet', category: 'shimmer-flow', price: 42, imageSrc: './images/product62.png' },
-            { id: 63, name: 'Pearl Accent Heishi Bracelet', category: 'bracelets', price: 42, imageSrc: './images/product63.png' },
-            { id: 64, name: 'Pink/White Standard Heishi', category: 'nature-inspired', price: 42, imageSrc: './images/product64.png' },
-            { id: 65, name: 'Pink Gradient Heishi Bracelet', category: 'autumn-abstracts', price: 42, imageSrc: './images/product65.png' },
-            { id: 66, name: 'Purple/Gold Heishi Bracelet', category: 'bold-artistic', price: 42, imageSrc: './images/product66.png' },
-            { id: 67, name: 'Brown Pearl Heishi Bracelet', category: 'shimmer-flow', price: 42, imageSrc: './images/product67.png' },
-            { id: 68, name: '"LOVE" Letter Bead Bracelet', category: 'bracelets', price: 42, imageSrc: './images/product68.png' },
-            { id: 69, name: 'Beige Tones Heishi Bracelet', category: 'nature-inspired', price: 42, imageSrc: './images/product69.png' },
-            { id: 70, name: 'Brown Heishi w/ Pearl', category: 'autumn-abstracts', price: 42, imageSrc: './images/product70.png' },
-            { id: 71, name: 'Abstract Marbled Stud', category: 'bold-artistic', price: 42, imageSrc: './images/product71.png' },
-            { id: 72, name: 'Solid Clay Tassel Drop', category: 'shimmer-flow', price: 60, imageSrc: './images/product72.png' },
-            { id: 73, name: 'Simple Link Dangle', category: 'bracelets', price: 42, imageSrc: './images/product73.png' },
-            { id: 74, name: 'Three-Piece Stud Set', category: 'nature-inspired', price: 60, imageSrc: './images/product74.png' },
-            { id: 75, name: 'Three-Layer Geometric Dangle', category: 'autumn-abstracts', price: 60, imageSrc: './images/product75.png' },
-            { id: 76, name: 'Gold Flake Inclusion Dangle', category: 'bold-artistic', price: 60, imageSrc: './images/product76.png' },
-            { id: 77, name: 'Statement Hoop Dangle', category: 'shimmer-flow', price: 60, imageSrc: './images/product77.png' },
-            { id: 78, name: 'Hand-Painted Dangle', category: 'bracelets', price: 60, imageSrc: './images/product78.png' },
-            { id: 79, name: 'Gemstone Bead Drop Dangle', category: 'nature-inspired', price: 72, imageSrc: './images/product79.png' },
-            { id: 80, name: 'Personalized Letter Bracelet', category: 'autumn-abstracts', price: 72, imageSrc: './images/product80.png' },
-            { id: 81, name: 'Premium Pearl Heishi Bracelet', category: 'bold-artistic', price: 72, imageSrc: './images/product81.png' },
-            { id: 82, name: 'Textured Cutout Dangle', category: 'shimmer-flow', price: 72, imageSrc: './images/product82.png' },
-            { id: 83, name: 'Patterned Link Dangle', category: 'bracelets', price: 72, imageSrc: './images/product83.png' },
-            { id: 84, name: 'Clay on Large Hoop Dangle', category: 'nature-inspired', price: 60, imageSrc: './images/product84.png' },
-            { id: 85, name: 'Wavy Edge Layered Dangle', category: 'autumn-abstracts', price: 60, imageSrc: './images/product85.png' },
-            { id: 86, name: 'Colorful Geometric Stud Set', category: 'bold-artistic', price: 42, imageSrc: './images/product86.png' },
-            { id: 87, name: 'Wavy Edge Layered Dangle', category: 'shimmer-flow', price: 60, imageSrc: './images/product87.png' },
-            // --- UPDATES APPLIED FROM products1.xlsx - products1.csv (IDs 88-103) ---
-            { id: 88, name: 'High-Detail Artistic Dangle', category: 'bracelets', price: 60, imageSrc: './images/product88.png' },
-            { id: 89, name: 'Marbled Floral Dangle', category: 'nature-inspired', price: 72, imageSrc: './images/product89.png' },
-            { id: 90, name: 'Three-Component Statement Dangle', category: 'autumn-abstracts', price: 72, imageSrc: './images/product90.png' },
-            { id: 91, name: 'Huggie Hoop Dangle', category: 'bold-artistic', price: 72, imageSrc: './images/product91.png' },
-            { id: 92, name: 'Heishi w/ Mixed Charms', category: 'shimmer-flow', price: 60, imageSrc: './images/product92.png' },
-            { id: 93, name: 'Gradient Heishi w/ Pearl', category: 'bracelets', price: 72, imageSrc: './images/product93.png' },
-            { id: 94, name: 'Abstract Detail Dangle', category: 'nature-inspired', price: 72, imageSrc: './images/product94.png' },
-            { id: 95, name: 'Multi-Part Premium Dangle', category: 'autumn-abstracts', price: 72, imageSrc: './images/product95.png' },
-            { id: 96, name: 'Custom Heishi w/ Letters', category: 'bold-artistic', price: 72, imageSrc: './images/product96.png' },
-            { id: 97, name: 'Large Geometric Hoop Dangle', category: 'shimmer-flow', price: 60, imageSrc: './images/product97.png' },
-            { id: 98, name: 'Intricate Blended Floral Stud', category: 'bracelets', price: 72, imageSrc: './images/product98.png' },
-            { id: 99, name: 'Three-Tier Statement Dangle', category: 'nature-inspired', price: 72, imageSrc: './images/product99.png' },
-            { id: 100, name: 'Gold Flake Premium Dangle', category: 'autumn-abstracts', price: 72, imageSrc: './images/product100.png' },
-            { id: 101, name: 'Crystal Drop Dangle', category: 'bold-artistic', price: 60, imageSrc: './images/product101.png' },
-            { id: 102, name: 'Gradient Heishi w/ Charm Set', category: 'shimmer-flow', price: 42, imageSrc: './images/product102.png' },
-            { id: 103, name: 'Artisan Dangle w/ Premium Hook', category: 'bracelets', price: 60, imageSrc: './images/product103.png' }
+            // Minimalist & Everyday (Price <= 42 SEK, simple studs/drops)
+            { id: 1, name: 'Teal Drops', category: 'minimal_everyday', price: 42, imageSrc: './images/product1.png' },
+            { id: 2, name: 'Autumn Leaves', category: 'minimal_everyday', price: 42, imageSrc: './images/product2.png' },
+            { id: 3, name: 'Midnight Bloom', category: 'minimal_everyday', price: 42, imageSrc: './images/product3.png' },
+            { id: 4, name: 'Golden Flow', category: 'minimal_everyday', price: 42, imageSrc: './images/product4.png' },
+            { id: 7, name: 'Pink Crush', category: 'minimal_everyday', price: 42, imageSrc: './images/product7.png' },
+            { id: 12, name: 'Silver Mist', category: 'minimal_everyday', price: 42, imageSrc: './images/product12.png' },
+            { id: 21, name: 'Sunrise Burst', category: 'minimal_everyday', price: 42, imageSrc: './images/product21.png' },
+            { id: 23, name: 'Earthy Hues', category: 'minimal_everyday', price: 42, imageSrc: './images/product23.png' },
+            { id: 25, name: 'Gold-Stripe Half-Circle Stud', category: 'minimal_everyday', price: 30, imageSrc: './images/product25.png' },
+            { id: 26, name: 'Teal Triangle Stud', category: 'minimal_everyday', price: 30, imageSrc: './images/product26.png' },
+            { id: 27, name: 'Mitten Accent Stud', category: 'minimal_everyday', price: 30, imageSrc: './images/product27.png' },
+            { id: 28, name: 'Marbled Triangle Clip-on', category: 'minimal_everyday', price: 30, imageSrc: './images/product28.png' },
+            { id: 32, name: 'Marbled Diamond Clip-on', category: 'minimal_everyday', price: 30, imageSrc: './images/product32.png' },
+            { id: 36, name: 'Striped Pebble Statement Stud', category: 'minimal_everyday', price: 42, imageSrc: './images/product36.png' },
+            { id: 37, name: 'Large Marbled Oval Stud', category: 'minimal_everyday', price: 42, imageSrc: './images/product37.png' },
+            { id: 41, name: 'Textured Flower Stud', category: 'minimal_everyday', price: 42, imageSrc: './images/product41.png' },
+            { id: 42, name: 'Splatter Pebble Stud', category: 'minimal_everyday', price: 42, imageSrc: './images/product42.png' },
+            { id: 43, name: 'Marbled 3D Flower Stud', category: 'minimal_everyday', price: 42, imageSrc: './images/product43.png' },
+            { id: 45, name: 'Striped Oval Statement Stud', category: 'minimal_everyday', price: 42, imageSrc: './images/product45.png' },
+            { id: 71, name: 'Abstract Marbled Stud', category: 'minimal_everyday', price: 42, imageSrc: './images/product71.png' },
+            { id: 73, name: 'Simple Link Dangle', category: 'minimal_everyday', price: 42, imageSrc: './images/product73.png' },
+            
+            // Statement & Artistic (Price >= 60 SEK, dangles, complex, bold)
+            { id: 5, name: 'Ocean Waves', category: 'statement_artistic', price: 60, imageSrc: './images/product5.png' },
+            { id: 6, name: 'Fall Sunset', category: 'statement_artistic', price: 60, imageSrc: './images/product6.png' },
+            { id: 8, name: 'Mystic Swirl', category: 'statement_artistic', price: 60, imageSrc: './images/product8.png' },
+            { id: 9, name: 'Forest Ferns', category: 'statement_artistic', price: 60, imageSrc: './images/product9.png' },
+            { id: 10, name: 'Cranberry Twist', category: 'statement_artistic', price: 60, imageSrc: './images/product10.png' },
+            { id: 11, name: 'Red Hot', category: 'statement_artistic', price: 60, imageSrc: './images/product11.png' },
+            { id: 13, name: 'Crimson Twist', category: 'statement_artistic', price: 60, imageSrc: './images/product13.png' },
+            { id: 14, name: 'Azure Swirl', category: 'statement_artistic', price: 60, imageSrc: './images/product14.png' },
+            { id: 15, name: 'Silver Lining', category: 'statement_artistic', price: 60, imageSrc: './images/product15.png' },
+            { id: 16, name: 'Green Marble', category: 'statement_artistic', price: 60, imageSrc: './images/product16.png' },
+            { id: 17, name: 'Fiery Heart', category: 'statement_artistic', price: 60, imageSrc: './images/product17.png' },
+            { id: 18, name: 'Forest Floor', category: 'statement_artistic', price: 60, imageSrc: './images/product18.png' },
+            { id: 19, name: 'Ocean Ripple', category: 'statement_artistic', price: 72, imageSrc: './images/product19.png' },
+            { id: 20, name: 'Pearl Drops', category: 'statement_artistic', price: 72, imageSrc: './images/product20.png' },
+            { id: 33, name: 'Abstract Art Hexagon Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product33.png' },
+            { id: 34, name: 'Marbled Bezel Ball Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product34.png' },
+            { id: 35, name: 'Marbled Bezel Hook Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product35.png' },
+            { id: 38, name: 'Half-Rainbow Stud', category: 'statement_artistic', price: 60, imageSrc: './images/product38.png' },
+            { id: 39, name: 'Green Leaf Wreath Stud', category: 'statement_artistic', price: 60, imageSrc: './images/product39.png' },
+            { id: 40, name: 'Full-Rainbow Stud', category: 'statement_artistic', price: 60, imageSrc: './images/product40.png' },
+            { id: 44, name: 'Layered Rainbow Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product44.png' },
+            { id: 46, name: 'Geometric Link Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product46.png' },
+            { id: 47, name: 'Scalloped Red Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product47.png' },
+            { id: 48, name: 'Hot Air Balloon Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product48.png' },
+            { id: 49, name: 'Abstract Hexagon Stud', category: 'statement_artistic', price: 60, imageSrc: './images/product49.png' },
+            { id: 50, name: 'Interlocking Ring Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product50.png' },
+            { id: 52, name: 'Marbled Tassel Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product52.png' },
+            { id: 53, name: 'Tree of Life Charm Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product53.png' },
+            { id: 54, name: 'Glitter Tassel Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product54.png' },
+            { id: 55, name: 'Abstract Marbled Arch Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product55.png' },
+            { id: 72, name: 'Solid Clay Tassel Drop', category: 'statement_artistic', price: 60, imageSrc: './images/product72.png' },
+            { id: 75, name: 'Three-Layer Geometric Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product75.png' },
+            { id: 76, name: 'Gold Flake Inclusion Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product76.png' },
+            { id: 77, name: 'Statement Hoop Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product77.png' },
+            { id: 78, name: 'Hand-Painted Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product78.png' },
+            { id: 82, name: 'Textured Cutout Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product82.png' },
+            { id: 83, name: 'Patterned Link Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product83.png' },
+            { id: 84, name: 'Clay on Large Hoop Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product84.png' },
+            { id: 85, name: 'Wavy Edge Layered Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product85.png' },
+            { id: 87, name: 'Wavy Edge Layered Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product87.png' },
+            { id: 88, name: 'High-Detail Artistic Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product88.png' },
+            { id: 89, name: 'Marbled Floral Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product89.png' },
+            { id: 90, name: 'Three-Component Statement Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product90.png' },
+            { id: 91, name: 'Huggie Hoop Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product91.png' },
+            { id: 94, name: 'Abstract Detail Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product94.png' },
+            { id: 95, name: 'Multi-Part Premium Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product95.png' },
+            { id: 97, name: 'Large Geometric Hoop Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product97.png' },
+            { id: 98, name: 'Intricate Blended Floral Stud', category: 'statement_artistic', price: 72, imageSrc: './images/product98.png' },
+            { id: 99, name: 'Three-Tier Statement Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product99.png' },
+            { id: 100, name: 'Gold Flake Premium Dangle', category: 'statement_artistic', price: 72, imageSrc: './images/product100.png' },
+            { id: 101, name: 'Crystal Drop Dangle', category: 'statement_artistic', price: 60, imageSrc: './images/product101.png' },
+            { id: 103, name: 'Artisan Dangle w/ Premium Hook', category: 'statement_artistic', price: 60, imageSrc: './images/product103.png' },
+
+            // Nature & Seasonal (Leaves, pumpkins, nature themes)
+            { id: 24, name: 'Simple Pumpkin Stud', category: 'nature_seasonal', price: 30, imageSrc: './images/product24.png' },
+            { id: 29, name: 'Maple Leaf Stud', category: 'nature_seasonal', price: 30, imageSrc: './images/product29.png' },
+            { id: 30, name: 'Ombre Pumpkin Dangle', category: 'nature_seasonal', price: 30, imageSrc: './images/product30.png' },
+            { id: 31, name: 'Ombre Leaf Dangle', category: 'nature_seasonal', price: 30, imageSrc: './images/product31.png' },
+            { id: 51, name: 'Detailed Pumpkin Dangle', category: 'nature_seasonal', price: 42, imageSrc: './images/product51.png' },
+
+            // Specialty: Bracelets & Sets (Heishi bracelets and multi-stud sets)
+            { id: 56, name: 'Neutral Tones Heishi Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product56.png' },
+            { id: 57, name: 'Yellow Tones Heishi Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product57.png' },
+            { id: 58, name: 'Green/Teal Heishi Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product58.png' },
+            { id: 59, name: 'Pink/White Heishi Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product59.png' },
+            { id: 60, name: 'Purple Gradient Heishi Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product60.png' },
+            { id: 61, name: 'Yellow Accent Heishi Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product61.png' },
+            { id: 62, name: 'Cream/Gold Heishi Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product62.png' },
+            { id: 63, name: 'Pearl Accent Heishi Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product63.png' },
+            { id: 64, name: 'Pink/White Standard Heishi', category: 'bracelets_sets', price: 42, imageSrc: './images/product64.png' },
+            { id: 65, name: 'Pink Gradient Heishi Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product65.png' },
+            { id: 66, name: 'Purple/Gold Heishi Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product66.png' },
+            { id: 67, name: 'Brown Pearl Heishi Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product67.png' },
+            { id: 68, name: '"LOVE" Letter Bead Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product68.png' },
+            { id: 69, name: 'Beige Tones Heishi Bracelet', category: 'bracelets_sets', price: 42, imageSrc: './images/product69.png' },
+            { id: 70, name: 'Brown Heishi w/ Pearl', category: 'bracelets_sets', price: 42, imageSrc: './images/product70.png' },
+            { id: 74, name: 'Three-Piece Stud Set', category: 'bracelets_sets', price: 60, imageSrc: './images/product74.png' },
+            { id: 79, name: 'Gemstone Bead Drop Dangle', category: 'bracelets_sets', price: 72, imageSrc: './images/product79.png' },
+            { id: 80, name: 'Personalized Letter Bracelet', category: 'bracelets_sets', price: 72, imageSrc: './images/product80.png' },
+            { id: 81, name: 'Premium Pearl Heishi Bracelet', category: 'bracelets_sets', price: 72, imageSrc: './images/product81.png' },
+            { id: 86, name: 'Colorful Geometric Stud Set', category: 'bracelets_sets', price: 42, imageSrc: './images/product86.png' },
+            { id: 92, name: 'Heishi w/ Mixed Charms', category: 'bracelets_sets', price: 60, imageSrc: './images/product92.png' },
+            { id: 93, name: 'Gradient Heishi w/ Pearl', category: 'bracelets_sets', price: 72, imageSrc: './images/product93.png' },
+            { id: 96, name: 'Custom Heishi w/ Letters', category: 'bracelets_sets', price: 72, imageSrc: './images/product96.png' },
+            { id: 102, name: 'Gradient Heishi w/ Charm Set', category: 'bracelets_sets', price: 42, imageSrc: './images/product102.png' }
         ];
         
         // Object for translations
-        // --- ADDED NEW CATEGORY FOR BRACELETS ---
         const categories = [
-            { id: 'nature-inspired', nameKey: 'nature-inspired-category' },
-            { id: 'autumn-abstracts', nameKey: 'autumn-abstracts-category' },
-            { id: 'bold-artistic', nameKey: 'bold-artistic-category' },
-            { id: 'shimmer-flow', nameKey: 'shimmer-flow-category' },
-            { id: 'bracelets', nameKey: 'bracelets-category' } // New category
+            { id: 'minimal_everyday', nameKey: 'minimal_everyday_category' },
+            { id: 'statement_artistic', nameKey: 'statement_artistic_category' },
+            { id: 'nature_seasonal', nameKey: 'nature_seasonal_category' },
+            { id: 'bracelets_sets', nameKey: 'bracelets_sets_category' }
         ];
 
         const translations = {
@@ -711,11 +429,10 @@
                 navContact: 'Contact Us',
                 welcomeTitle: 'Handmade with Love ❤️',
                 welcomeText: 'Explore our latest collection of products. Each item is available for immediate purchase through our secure checkout.',
-                bannerText: 'Autumn Collections - 2025',
+                bannerText: 'Autumn Market Sale Collage 2025',
                 autumnMotto: 'Embrace the season with our new autumn designs.',
                 autumnCollection: 'Autumn Collection - Höstkollektion',
                 productsTitle: 'Our Product Collection',
-                // FIX: Changed "who wear it" to "as the person who wears it" for better grammar.
                 productsText: 'At ClayCharm, we believe jewelry should be as fun, unique, and full of personality as the person who wears it. Every piece is handmade with love using colorful polymer clay, designed to add that perfect pop of charm and creativity to any look.',
                 addToCartBtn: 'Add to Cart',
                 aboutTitle: 'About Our Company',
@@ -765,12 +482,11 @@
                 buyNowBtn: 'Pay Now',
                 removeItemBtn: 'Remove',
                 closeBtn: 'Close',
-                // Category translations
-                'nature-inspired-category': '🌿 Nature-Inspired Earrings',
-                'autumn-abstracts-category': '🍁 Autumn Abstract Earrings',
-                'bold-artistic-category': '❤️ Bold & Artistic Earrings',
-                'shimmer-flow-category': '🍂 Shimmer & Flow Earrings',
-                'bracelets-category': '✨ Handcrafted Bracelets', // New translation
+                // --- NEW CATEGORY TRANSLATIONS (English) ---
+                'minimal_everyday_category': '✨ Minimalist & Everyday Collection',
+                'statement_artistic_category': '🎨 Statement & Artistic Dangles',
+                'nature_seasonal_category': '🍂 Nature & Seasonal Pieces',
+                'bracelets_sets_category': '💍 Specialty: Bracelets & Stud Sets',
             },
             sv: {
                 navProducts: 'Produkter',
@@ -778,7 +494,7 @@
                 navContact: 'Kontakta Oss',
                 welcomeTitle: 'Handgjort med Kärlek ❤️',
                 welcomeText: 'Utforska vår senaste kollektion av produkter. Varje artikel är tillgänglig för omedelbart köp via vår säkra kassa.',
-                bannerText: 'Höstkollektioner - 2025',
+                bannerText: 'Höstmarknads Collage 2025',
                 autumnMotto: 'Omfamna säsongen med våra nya höstdesigner.',
                 autumnCollection: 'Höstkollektion - Autumn Collection',
                 productsTitle: 'Vår produktkollektion',
@@ -786,7 +502,7 @@
                 addToCartBtn: 'Lägg i varukorg',
                 aboutTitle: 'Om Vårt Företag',
                 aboutParagraph1: 'På ClayCharm tror vi att smycken inte bara handlar om att accessorizera—det handlar om att uttrycka din unika personlighet, kreativitet och stil. Var och en av våra smycken är handgjorda med kärlek, med hjälp av färgglad polymerlera för att skapa unika designer som ger charm, glädje och en touch av magi till varje outfit.',
-                aboutParagraph2: 'Från levande, färgstarka smycken till eleganta, subtila designer, ClayCharm erbjuder något för varje kvinna som älskar att uttrycka sig genom mode. Varje smycke är noggrant utformat för att få dig att känna dig speciell och lägga till den perfekta charmen till din look—no matter the occasion.',
+                aboutParagraph2: 'Från levande, färgstarka smycken till eleganta, subtila designer, ClayCharm erbjuder något för varje kvinna som älskar att uttrycka sig genom mode. Varje smycke är noggrant utformat för att få dig att känna dig speciell och lägga till den perfekta charmen till din look—no matter her age or style.',
                 meetTheMakerTitle: 'Möt Skaparen',
                 meetTheMakerText: 'Hej, jag är Priyadharshini [PD], skaparen bakom ClayCharm! Jag har alltid haft en passion för hantverk och design. Mitt mål är att dela med mig av smycken som hyllar individualitet, kreativitet och skönhet—smycken som ger charm till varje kvinnas dag, no matter her age or style.',
                 contactTitle: 'Kontakta Oss',
@@ -821,10 +537,8 @@
                 modalProductAddedMessage: (productName) => `"${productName}" har lagts till i din varukorg.`,
                 modalCannotCheckoutTitle: 'Kan inte gå till kassan',
                 modalCannotCheckoutMessage: 'Din varukorg är tom. Lägg till varor för att gå till kassan.',
-                // FIX: Added exclamation mark for better consistency/tone
                 modalPaymentSuccessTitle: 'Betalning lyckades!', 
                 modalPaymentSuccessMessage: (confirmationCode, email) => `<p class="mb-4">Tack för din beställning! Din betalning lyckades.</p><p class="mb-4">Din bekräftelsekod är: <span class="font-bold text-teal-600">${confirmationCode}</span></p><p>Ett bekräftelsemail har skickats till ${email}.</p>`,
-                // FIX: Added exclamation mark for better consistency/tone
                 modalPaymentFailedTitle: 'Betalning misslyckades!', 
                 modalPaymentFailedMessage: (email) => `<p class="mb-4">Tyvärr kunde din betalning inte behandlas.</p><p>Ett mail med ytterligare instruktioner har skickats till ${email}. Vänligen försök igen eller kontakta support.</p>`,
                 modalCartClearedTitle: 'Varukorgen tömd',
@@ -833,12 +547,11 @@
                 buyNowBtn: 'Betala nu',
                 removeItemBtn: 'Ta bort',
                 closeBtn: 'Stäng',
-                // Category translations
-                'nature-inspired-category': '🌿 Natur-inspirerade Örhängen',
-                'autumn-abstracts-category': '🍁 Höstabstrakta Örhängen',
-                'bold-artistic-category': '❤️ Djärva & Konstnärliga Örhängen',
-                'shimmer-flow-category': '🍂 Skimmer & Flöde Örhängen',
-                'bracelets-category': '✨ Handgjorda Armband', // New translation
+                // --- NEW CATEGORY TRANSLATIONS (Swedish) ---
+                'minimal_everyday_category': '✨ Minimalist & Vardags-kollektion',
+                'statement_artistic_category': '🎨 Statement & Konstnärliga Hängen',
+                'nature_seasonal_category': '🍂 Natur & Säsongsbetonade Smycken',
+                'bracelets_sets_category': '💍 Special: Armband & Örhängeset',
             }
         };
         
@@ -881,14 +594,17 @@
                         const translatedName = getTranslatedProductName(product.id, currentLang);
 
                         const productCardHtml = `
-                            <div class="flex flex-col rounded-lg shadow-md transition-transform duration-200 hover:scale-105 border border-gray-100 p-4">
+                            <!-- Enhanced card styling: rounded-xl, deeper shadow, and subtle hover transition -->
+                            <div class="flex flex-col rounded-xl shadow-lg transition-transform duration-300 hover:scale-[1.03] border border-gray-100 bg-white overflow-hidden">
                                 <!-- Ensure the image source correctly points to the uploaded file names -->
-                                <img src="./images/${product.imageSrc.split('/').pop()}" alt="${translatedName}" class="w-full h-48 object-cover rounded-lg mb-4">
-                                <p class="font-semibold text-lg text-gray-800">${translatedName}</p>
-                                <p class="text-teal-600 font-bold text-xl mb-4">${product.price} SEK</p>
-                                <button class="add-to-cart-button w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200" data-id="${product.id}" data-lang-key="addToCartBtn">
-                                    ${translations[currentLang].addToCartBtn}
-                                </button>
+                                <img src="./images/${product.imageSrc.split('/').pop()}" alt="${translatedName}" class="w-full h-64 object-cover mb-0 rounded-t-xl">
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <p class="font-semibold text-xl text-gray-800 mb-1">${translatedName}</p>
+                                    <p class="text-teal-700 font-extrabold text-2xl mb-4">${product.price} SEK</p>
+                                    <button class="add-to-cart-button mt-auto w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200" data-id="${product.id}" data-lang-key="addToCartBtn">
+                                        ${translations[currentLang].addToCartBtn}
+                                    </button>
+                                </div>
                             </div>
                         `;
                         productGrid.innerHTML += productCardHtml;
@@ -941,9 +657,8 @@
                 const translation = translations[lang][key];
 
                 if (element.tagName === 'IMG') {
-                    // Handle image URL with text
-                    const newSrc = `https://placehold.co/800x450/e0f2f7/0e7490?text=${encodeURIComponent(translation)}`;
-                    element.src = newSrc;
+                    // For local images, only update the alt text for translation.
+                    // The src is now a fixed local file (e.g., ./images/autumn092025.jpg)
                     element.alt = translation;
                 } else if (typeof translation === 'function') {
                     // This case is for dynamic messages, e.g., in modals
@@ -991,19 +706,20 @@
                 emptyCartMessage.classList.add('hidden');
                 cart.forEach(item => {
                     const translatedName = getTranslatedProductName(item.id, currentLang);
+                    // Updated cart item styling with rounded-xl
                     const itemElement = document.createElement('div');
-                    itemElement.classList.add('flex', 'flex-col', 'sm:flex-row', 'justify-between', 'items-center', 'p-4', 'rounded-lg', 'bg-gray-50');
+                    itemElement.classList.add('flex', 'flex-col', 'sm:flex-row', 'justify-between', 'items-center', 'p-4', 'rounded-xl', 'bg-gray-50', 'border', 'border-gray-200');
                     itemElement.innerHTML = `
                         <div class="flex flex-grow items-center space-x-4 mb-4 sm:mb-0">
                             <p class="font-semibold text-gray-800">${translatedName}</p>
                             <div class="quantity-control flex items-center space-x-2">
                                 <button class="decrease-qty-button" data-id="${item.id}">-</button>
-                                <span class="text-sm font-semibold text-gray-700">${item.quantity}</span>
+                                <span class="text-lg font-semibold text-gray-700">${item.quantity}</span>
                                 <button class="increase-qty-button" data-id="${item.id}">+</button>
                             </div>
                         </div>
                         <div class="flex items-center space-x-4">
-                            <p class="font-bold text-teal-600">${item.price * item.quantity} SEK</p>
+                            <p class="font-bold text-teal-600 text-xl">${item.price * item.quantity} SEK</p>
                             <button class="remove-from-cart-button text-red-500 hover:text-red-700 font-semibold text-sm transition-colors duration-200" data-id="${item.id}" data-lang-key="removeItemBtn">
                                 ${translations[currentLang].removeItemBtn}
                             </button>
@@ -1020,10 +736,11 @@
             reviewCartItemsElement.innerHTML = ''; // Clear existing items
             cart.forEach(item => {
                 const itemElement = document.createElement('div');
-                itemElement.classList.add('flex', 'justify-between', 'items-center', 'p-2', 'rounded-lg', 'bg-gray-50');
+                // Updated review item styling with rounded-xl
+                itemElement.classList.add('flex', 'justify-between', 'items-center', 'p-3', 'rounded-xl', 'bg-gray-50', 'border', 'border-gray-200');
                 const translatedName = getTranslatedProductName(item.id, currentLang);
                 itemElement.innerHTML = `
-                    <p class="font-semibold text-gray-800">${translatedName} (${item.quantity}x)</p>
+                    <p class="font-semibold text-gray-800">${translatedName} <span class="text-sm text-gray-500">(${item.quantity}x)</span></p>
                     <p class="font-bold text-teal-600">${item.price * item.quantity} SEK</p>
                 `;
                 reviewCartItemsElement.appendChild(itemElement);
@@ -1035,11 +752,13 @@
 
             const reviewShippingDetailsElement = document.getElementById('review-shipping-details');
             reviewShippingDetailsElement.innerHTML = `
-                <p>${shippingInfo.fullName}</p>
-                <p>${shippingInfo.emailAddress}</p>
-                <p>${shippingInfo.address}</p>
-                <p>${shippingInfo.zipCode} ${shippingInfo.city}</p>
-                <p>${shippingInfo.country}</p>
+                <div class="p-4 bg-teal-50 rounded-xl border border-teal-200 space-y-1">
+                    <p class="font-medium">${shippingInfo.fullName}</p>
+                    <p>${shippingInfo.emailAddress}</p>
+                    <p>${shippingInfo.address}</p>
+                    <p>${shippingInfo.zipCode} ${shippingInfo.city}</p>
+                    <p>${shippingInfo.country}</p>
+                </div>
             `;
         }
         
